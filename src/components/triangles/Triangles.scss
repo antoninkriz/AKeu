@@ -1,0 +1,23 @@
+@import "../../variables";
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  will-change: transform;
+
+  &--back {
+    right: 0;
+    bottom: 0;
+    width: 25vh;
+    border-left: 15vw solid transparent;
+    border-bottom: 115vh solid $color-dark;
+  }
+
+  &--front {
+    right: -5vw;
+    bottom: -5vh;
+    border-bottom: 40vh solid $color-primary;
+    border-left: 80vw solid transparent;
+  }
+}

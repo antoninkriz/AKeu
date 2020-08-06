@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.menu {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  top: 50px;
+  right: 50px;
+  overflow: hidden;
+  background: $color-accent;
+  box-shadow: 0 0 5px rgba($color-text, .5);
+  will-change: width, height, top, right;
+
+  &__content {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    will-change: top, right;
+
+    &__icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 50px;
+      right: 50px;
+    }
+  }
+}
