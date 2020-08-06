@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import './App.scss';
 
@@ -7,10 +8,16 @@ import Menu from "./components/menu/Menu";
 import Triangles from "./components/triangles/Triangles";
 
 const App = () => (
-  <div className="App">
-    <Triangles/>
-    <Menu/>
-  </div>
+  <Router>
+    <div className="App">
+      <Triangles/>
+      <Menu/>
+      <Switch>
+        <Route path="/">
+        </Route>
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;

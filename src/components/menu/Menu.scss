@@ -8,6 +8,7 @@
   top: 50px;
   right: 50px;
   overflow: hidden;
+  z-index: $z-menu;
   background: $color-accent;
   box-shadow: 0 0 5px rgba($color-text, .5);
   will-change: width, height, top, right;

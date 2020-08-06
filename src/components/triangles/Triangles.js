@@ -38,11 +38,11 @@ const Triangles = () => {
   }, [parallaxSet]);
 
   return (
-    <div className="parallax"  onMouseMove={({clientX: x, clientY: y}) => parallaxSet({xy: calcCursorCenterPos(x, y)})}>
-      <animated.div className="triangle triangle--back" style={{
+    <div className="parallax" onMouseMove={({clientX: x, clientY: y}) => parallaxSet({xy: calcCursorCenterPos(x, y)})}>
+      <animated.div className="parallax__triangle parallax__triangle--back" style={{
         transform: parallaxProps.xy.interpolate(transitions.triangle.back.transform),
       }}/>
-      <animated.div className="triangle triangle--front" style={{
+      <animated.div className="parallax__triangle parallax__triangle--front" style={{
         transform: parallaxProps.xy.interpolate(transitions.triangle.front.transform),
       }}/>
     </div>
