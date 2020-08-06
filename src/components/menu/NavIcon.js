@@ -1,14 +1,17 @@
 import React from "react";
 
 import "./NavIcon.scss";
+import classNames from "../../utils/classNames";
 
-const NavIcon = () => {
+const NavIcon = (props) => {
   return (
-    <div className="icon icon--nav">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="32"
-              d="M80 160h352M80 256h352M80 352h352"/>
-      </svg>
+    <div className={classNames({
+      [props.className]: !!props.className,
+      'icon': true,
+      'icon--menu': !props.flag,
+      'icon--close': props.flag
+    })}>
+      <span className="icon__line"/>
     </div>
   )
 };

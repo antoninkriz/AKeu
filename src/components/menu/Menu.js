@@ -31,7 +31,7 @@ const Menu = () => {
   }));
 
   const toggleMenu = () => {
-    menuSet({n: !menuOpen ? 400 : 0});
+    menuSet({n: !menuOpen ? 400 : 0}).then();
     menuSetState(!menuOpen);
   };
   return (
