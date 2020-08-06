@@ -15,7 +15,7 @@
     width: 80%;
     height: $size / 15;
     background: $color-text;
-    transition: background .15s ease, transform .15s ease, width .15s ease, height (.15s / 2) ease;
+    transition: background .3s ease, transform .3s ease, width .3s ease, height (.3s / 2) ease;
 
     &:before, &:after {
       content: "";
@@ -24,7 +24,7 @@
       height: $size / 15;
       right: 0;
       background: $color-text;
-      transition: background .15s ease, transform .15s ease, width .15s ease;
+      transition: background .3s ease, transform .3s ease, width .3s ease;
     }
   }
 
