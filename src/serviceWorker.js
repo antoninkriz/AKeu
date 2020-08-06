@@ -54,7 +54,7 @@ export function register(config) {
   }
 }
 
-function registerValidSW(swUrl, config) {
+function registerValidSW(swUrl, config = {onUpdate: undefined, onSuccess: undefined}) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
@@ -132,7 +132,7 @@ export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then(registration => {
-        registration.unregister();
+        return registration.unregister();
       })
       .catch(error => {
         console.error(error.message);

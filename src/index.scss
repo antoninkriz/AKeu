@@ -1,0 +1,15 @@
+@import "variables";
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-text;
+}
+
+code {
+  font-family: 'Source Code Pro', monospace;
+}
