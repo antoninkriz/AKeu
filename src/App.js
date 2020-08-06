@@ -9,6 +9,9 @@ import store from "./redux/store";
 import Menu from "./components/menu/Menu";
 import Triangles from "./components/triangles/Triangles";
 
+// Pages
+import Home from "./pages/Home/Home"
+
 import './App.scss';
 
 const App = () => (
@@ -19,6 +22,7 @@ const App = () => (
         <Menu/>
         <Switch>
           <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </Router>

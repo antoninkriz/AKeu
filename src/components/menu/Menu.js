@@ -32,8 +32,7 @@ const transitions = {
 };
 
 const Menu = () => {
-  const isMenuOpen = useSelector(state => state.ui.isMenuOpen);
-  const dispatch = useDispatch();
+  let isMenuOpen;
 
   const [menuProps, menuSet] = useSpring(() => ({
     n: isMenuOpen ? 400 : 0,
@@ -44,6 +43,13 @@ const Menu = () => {
     menuSet({n: !isMenuOpen ? 400 : 0});
     dispatch(isMenuOpen ? menuClose() : menuOpen());
   };
+
+  // Redux stuff
+  const dispatch = useDispatch();
+  isMenuOpen = useSelector(state => {
+    menuSet({n: state.ui.isMenuOpen ? 400 : 0});
+    return state.ui.isMenuOpen
+  });
 
   return (
     <animated.div className="menu" onClick={toggleMenu} style={{

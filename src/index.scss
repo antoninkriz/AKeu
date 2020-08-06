@@ -17,3 +17,19 @@ body {
 code {
   font-family: 'Source Code Pro', monospace;
 }
+
+// x-axios-progress-bar
+#nprogress {
+  & .bar {
+    background: $color-accent;
+  }
+
+  & .peg {
+    box-shadow: 0 0 10px $color-accent, 0 0 5px $color-accent;
+  }
+
+  & .spinner-icon {
+    border-top-color: $color-accent;
+    border-left-color: $color-accent;
+  }
+}

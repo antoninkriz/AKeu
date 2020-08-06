@@ -1,6 +1,7 @@
-import {MENU_CLOSE, MENU_OPEN} from "../types";
+import {LOADING_END, LOADING_START, MENU_CLOSE, MENU_OPEN} from "../types";
 
 const initialState = {
+  loading: false,
   isMenuOpen: false
 };
 
@@ -15,7 +16,17 @@ const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         isMenuOpen: false
-      }
+      };
+    case LOADING_START:
+      return {
+        ...state,
+        loading: true
+      };
+    case LOADING_END:
+      return {
+        ...state,
+        loading: false
+      };
     default:
       return state;
   }
