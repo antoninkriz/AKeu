@@ -70,7 +70,9 @@ class Home extends React.Component {
                 }}>{text}</Typist>
                 }
               </div>
-              <HexagonImage imageUrl={photo} size={`20${windowUnit()}`}/>
+              <div className="home__hello__photo">
+                <HexagonImage imageUrl={photo} size={`20${windowUnit()}`}/>
+              </div>
             </section>
           </ParallaxLayer>
           <ParallaxLayer offset={1} speed={.2}>

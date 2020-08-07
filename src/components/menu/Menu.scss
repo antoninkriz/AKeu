@@ -20,6 +20,10 @@
 
   &__content {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
     will-change: top, right;
@@ -34,6 +38,27 @@
       @media #{$media} {
         top: 50px;
         right: 50px;
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__link {
+        padding: ($size / 2) ($size / 5);
+        font-family: 'Source Code Pro', monospace;
+        font-weight: 600;
+        font-size: 3rem;
+        color: $color-text !important; // TODO: remove !important after  markdown integration
+        text-transform: uppercase;
+        transition: color .15s ease;
+
+        &:hover {
+          color: $color-dark !important; // TODO: remove !important after  markdown integration
+        }
       }
     }
   }

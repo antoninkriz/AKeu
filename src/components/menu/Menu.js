@@ -13,6 +13,7 @@ import {menuClose, menuOpen} from "../../redux/actions/uiActions";
 import NavIcon from "./NavIcon";
 
 import './Menu.scss';
+import {Link} from "react-router-dom";
 
 const springsConfig = {
   menu: {mass: 15, tension: 500, friction: 150}
@@ -67,7 +68,11 @@ const Menu = () => {
         right: menuProps.n.interpolate(transitions.menu.content.right),
       }}>
         <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen}/>
-        Hello World :)
+        <div className="menu__content__links">
+          <Link className="menu__content__links__link" to="/">Who am I</Link>
+          <Link className="menu__content__links__link" to="/">CV</Link>
+          <Link className="menu__content__links__link" to="/">Contact Me</Link>
+        </div>
       </animated.div>
     </animated.div>
   );
