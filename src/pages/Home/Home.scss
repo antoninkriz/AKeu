@@ -1,0 +1,110 @@
+@import "../../variables";
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+
+  &__hello {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: $size / 2;
+
+    @media #{$media} {
+      flex-direction: row;
+    }
+
+    &__content {
+      text-align: left;
+      white-space: pre-line;
+      font-weight: 400;
+
+      @media #{$media} {
+        font-weight: 300;
+        width: 50vw;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media #{$media} {
+      min-height: 100vh;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 50vh;
+      background: $color-background;
+      text-align: left;
+
+      @media #{$media} {
+        display: block;
+        min-height: 50vh;
+        max-width: $size * 30;
+        max-height: 60vh;
+        margin: 0 ($size * 2);
+        box-shadow: 0 0 10px rgba($color-text, .2);
+        border-radius: $size / 3;
+        overflow: hidden;
+
+        &__heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: ($size / 5) ($size / 2);
+          background: $color-silver;
+
+          &__title {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 300;
+          }
+
+          &__buttons {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            &__button {
+              height: $size / 3;
+              width: $size / 3;
+              margin: 0 0 0 ($size / 3);
+              border-radius: $size / 3;
+
+              &--green {
+                background: $color-green;
+              }
+
+              &--orange {
+                background: $color-orange;
+              }
+
+              &--red {
+                background: $color-red;
+              }
+            }
+          }
+        }
+
+        &__body {
+          max-width: 75%;
+          padding: $size;
+          font-weight: 400;
+          letter-spacing: 2px;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+}

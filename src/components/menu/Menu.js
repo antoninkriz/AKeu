@@ -2,6 +2,10 @@ import React from "react";
 import {animated, useSpring} from "react-spring";
 import {useDispatch, useSelector} from 'react-redux';
 
+// Utils
+import windowUnit from "../../utils/windowUnit";
+import isMobile from "../../utils/isMobile";
+
 // Redux
 import {menuClose, menuOpen} from "../../redux/actions/uiActions";
 
@@ -14,19 +18,19 @@ const springsConfig = {
   menu: {mass: 15, tension: 500, friction: 150}
 };
 
-const windowUnit = () => ((window?.innerHeight ?? 0) > (window?.innerWidth ?? 0)) ? 'vh' : 'vw';
+const menuPos = () => isMobile() ? 30 : 50;
 
 const transitions = {
   menu: {
     circle: {
       width: n => `calc(${n}${windowUnit()} + 50px)`,
       height: n => `calc(${n}${windowUnit()} + 50px)`,
-      top: n => `calc(${-n * .5}${windowUnit()} + 50px)`,
-      right: n => `calc(${-n * .5}${windowUnit()} + 50px)`,
+      top: n => `calc(${-n * .5}${windowUnit()} + ${menuPos()}px)`,
+      right: n => `calc(${-n * .5}${windowUnit()} + ${menuPos()}px)`,
     },
     content: {
-      top: n => `calc(${n * .5}${windowUnit()} - 50px)`,
-      right: n => `calc(${n * .5}${windowUnit()} - 50px)`,
+      top: n => `calc(${n * .5}${windowUnit()} - ${menuPos()}px)`,
+      right: n => `calc(${n * .5}${windowUnit()} - ${menuPos()}px)`,
     },
   },
 };

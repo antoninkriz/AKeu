@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
-    "x-axios-progress-bar": "^1.2.2",
     "flubber": "^0.4.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -13,8 +12,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
+    "react-typist": "^2.0.5",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "x-axios-progress-bar": "^1.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

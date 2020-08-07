@@ -1,7 +1,27 @@
 /*
+Better base colors: https://clrs.cc/
+ */
+$color-navy: #001F3F;
+$color-blue: #0074D9;
+$color-aqua: #7FDBFF;
+$color-teal: #39CCCC;
+$color-olive: #3D9970;
+$color-green: #2ECC40;
+$color-lime: #01FF70;
+$color-yellow: #FFDC00;
+$color-orange: #FF851B;
+$color-red: #FF4136;
+$color-fuchsia: #F012BE;
+$color-purple: #B10DC9;
+$color-maroon: #85144B;
+$color-white: #FFFFFF;
+$color-silver: #DDDDDD;
+$color-gray: #AAAAAA;
+$color-black: #111111;
+
+/*
 Colors: https://coolors.co/ffd333-ffffff-0077ff-00438f-0b0a07
  */
-
 $color-primary: #0077ff;
 $color-dark: #00438f;
 $color-accent: #ffd333;
@@ -18,3 +38,8 @@ $z-menu: 100;
 Sizes
  */
 $size: 30px;
+
+/*
+Media
+ */
+$media: 'screen and (min-width: 769px)';

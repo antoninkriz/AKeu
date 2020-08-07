@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
@@ -21,8 +21,11 @@ const App = () => (
         <Triangles/>
         <Menu/>
         <Switch>
-          <Route path="/">
+          <Route path="/" exact={true}>
             <Home />
+          </Route>
+          <Route path="/contact-me" exact={true}>
+            <h1>contact me</h1>
           </Route>
         </Switch>
       </Router>

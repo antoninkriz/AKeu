@@ -2,16 +2,21 @@
 
 .menu {
   position: fixed;
-  height: 50px;
   width: 50px;
-  border-radius: 50%;
-  top: 50px;
-  right: 50px;
+  height: 50px;
+  top: 30px;
+  right: 30px;
   overflow: hidden;
   z-index: $z-menu;
   background: $color-accent;
+  border-radius: 50%;
   box-shadow: 0 0 5px rgba($color-text, .5);
   will-change: width, height, top, right;
+  
+  @media #{$media} {
+    top: 50px;
+    right: 50px;
+  }
 
   &__content {
     position: absolute;
@@ -23,8 +28,13 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      top: 50px;
-      right: 50px;
+      top: 30px;
+      right: 30px;
+
+      @media #{$media} {
+        top: 50px;
+        right: 50px;
+      }
     }
   }
 }
