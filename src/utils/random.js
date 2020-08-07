@@ -1,5 +1,5 @@
-/*
-Random gaussian function based on https://stackoverflow.com/a/49434653/3161322
+/**
+ * Random gaussian function based on https://stackoverflow.com/a/49434653/3161322
  */
 export const randomGaussian = () => {
   let u = 0, v = 0;

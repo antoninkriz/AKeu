@@ -3,7 +3,11 @@ import {USER_PROFILE} from "../types";
 const initialState = {
   profile: {
     text: '',
-    photo: ''
+    photo: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    keybase: ''
   }
 };
 
@@ -13,7 +17,9 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: {
-          ...action.payload
+          ...action.payload,
+          // Email is saved as an array of ROT 1 chars, it has to be decoded
+          email: action.payload.email.map(c => String.fromCharCode(c.charCodeAt(0) - 1)).join('')
         }
       };
     default:

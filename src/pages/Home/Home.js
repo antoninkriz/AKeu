@@ -49,7 +49,7 @@ class Home extends React.Component {
     for (let i = 0; i < 50; i++)
       svg.push(
         <ParallaxLayer key={i} {...getSwooshParams()}>
-          <img src="/swoosh.svg" alt=""/>
+          <img src="/svg/swoosh.svg" alt=""/>
         </ParallaxLayer>
       );
 

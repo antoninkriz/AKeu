@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "../../utils/classNames";
 
-import "./HexagonImage.scss"
+import "./HexagonImage.scss";
 
 class HexagonImage extends React.Component {
   render() {

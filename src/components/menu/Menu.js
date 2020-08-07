@@ -1,10 +1,12 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {animated, useSpring} from "react-spring";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from "react-redux";
 
 // Utils
 import windowUnit from "../../utils/windowUnit";
 import isMobile from "../../utils/isMobile";
+import windowSize from "../../utils/windowSize";
 
 // Redux
 import {menuClose, menuOpen} from "../../redux/actions/uiActions";
@@ -13,7 +15,6 @@ import {menuClose, menuOpen} from "../../redux/actions/uiActions";
 import NavIcon from "./NavIcon";
 
 import './Menu.scss';
-import {Link} from "react-router-dom";
 
 const springsConfig = {
   menu: {mass: 15, tension: 500, friction: 150}
@@ -37,8 +38,11 @@ const transitions = {
 };
 
 const Menu = () => {
-  let isMenuOpen;
+  // Rerender on window resize
+  windowSize();
 
+  // Menu stuff
+  let isMenuOpen;
   const [menuProps, menuSet] = useSpring(() => ({
     n: isMenuOpen ? 400 : 0,
     config: springsConfig.menu
@@ -70,8 +74,8 @@ const Menu = () => {
         <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen}/>
         <div className="menu__content__links">
           <Link className="menu__content__links__link" to="/">Who am I</Link>
-          <Link className="menu__content__links__link" to="/">CV</Link>
-          <Link className="menu__content__links__link" to="/">Contact Me</Link>
+          <Link className="menu__content__links__link" to="/cv">CV</Link>
+          <Link className="menu__content__links__link" to="/contact-me">Contact Me</Link>
         </div>
       </animated.div>
     </animated.div>

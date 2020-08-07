@@ -63,7 +63,7 @@
       @media #{$media} {
         margin: 0 ($size * 2);
         border-radius: $size / 3;
-        min-height: 100vh;
+        min-height: 50vh;
       }
 
       &__heading {

@@ -1,9 +1,9 @@
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
-import thunk from 'redux-thunk';
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import thunk from "redux-thunk";
 
 // Reducers
-import uiReducer from './reducers/uiReducer'
-import userReducer from './reducers/userReducer'
+import uiReducer from "./reducers/uiReducer";
+import userReducer from "./reducers/userReducer";
 
 const initialState = {};
 const middlewares = [thunk];
