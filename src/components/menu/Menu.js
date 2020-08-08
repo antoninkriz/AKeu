@@ -17,16 +17,16 @@ import NavIcon from "./NavIcon";
 import './Menu.scss';
 
 const springsConfig = {
-  menu: {mass: 15, tension: 500, friction: 150}
+  menu: {mass: 15, tension: 475, friction: 150}
 };
 
-const menuPos = () => isMobile() ? 30 : 50;
+const menuPos = () => isMobile() ? 30 : 60;
 
 const transitions = {
   menu: {
     circle: {
-      width: n => `calc(${n}${windowUnit()} + 50px)`,
-      height: n => `calc(${n}${windowUnit()} + 50px)`,
+      width: n => `calc(${n}${windowUnit()} + 60px)`,
+      height: n => `calc(${n}${windowUnit()} + 60px)`,
       top: n => `calc(${-n * .5}${windowUnit()} + ${menuPos()}px)`,
       right: n => `calc(${-n * .5}${windowUnit()} + ${menuPos()}px)`,
     },

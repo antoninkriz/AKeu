@@ -11,6 +11,7 @@ import Triangles from "./components/triangles/Triangles";
 
 // Pages
 import Home from "./pages/Home/Home";
+import Resume from "./pages/Resume/Resume";
 import ContactMe from "./pages/ContactMe/ContactMe";
 
 import './App.scss';
@@ -24,6 +25,9 @@ const App = () => (
           <Route path="/" exact={true}>
             <Triangles/>
             <Home />
+          </Route>
+          <Route path="/cv" exact={true}>
+            <Resume/>
           </Route>
           <Route path="/contact-me" exact={true}>
             <ContactMe/>
