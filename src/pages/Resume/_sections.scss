@@ -1,17 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 
-@mixin contentWithTitle($parent) {
-  width: 100%;
-  margin: $size / 2 0 0;
-  color: $color-background;
-  letter-spacing: $size / 30;
-
-  @media #{$media} {
-    padding: 0 ($size * 2);
-    margin: 0;
-  }
-
+@mixin title($parent) {
   #{$parent}__title {
     display: block;
     margin: 0;
@@ -36,6 +26,20 @@
       margin: 0
     }
   }
+}
+
+@mixin contentWithTitle($parent) {
+  width: 100%;
+  margin: $size / 2 0 0;
+  color: $color-background;
+  letter-spacing: $size / 30;
+
+  @media #{$media} {
+    padding: 0 ($size * 2);
+    margin: 0;
+  }
+
+  @include title($parent);
 }
 
 .section {
@@ -257,14 +261,7 @@
       padding: ($size / 2) ($size / 2) 0;
       text-align: left;
 
-      &__title {
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 1.25rem;
-        text-shadow: 0 0 5px rgba($color-text, .5);
-        transition: text-shadow .15s ease;
-      }
+      @include title(&);
 
       &__text {
         padding: 0 0 0 ($size / 5);

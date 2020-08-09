@@ -16,15 +16,18 @@ class ProgressBar extends Component {
   };
 
   render() {
+    const {className, progress} = this.props;
+
     return (
-      <div className="progressBar" onMouseUp={this.mouseDown}>
-        <div className="timeBar" style={{width: (this.props.progress * 100) + "%"}} />
+      <div className={className ?? 'bar'} onMouseUp={this.mouseDown}>
+        <div className={className ? `${className}__time` : 'bar__time'} style={{width: (progress * 100) + "%"}} />
       </div>
     );
   }
 }
 
 ProgressBar.propTypes = {
+  className: PropTypes.string,
   progress: PropTypes.number.isRequired,
   setTime: PropTypes.func.isRequired
 };

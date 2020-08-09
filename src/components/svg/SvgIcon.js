@@ -7,22 +7,12 @@ import icons from "./_icons";
 class SvgIcon extends React.PureComponent {
   render() {
     const icon = icons[this.props.icon];
-
-    if (icon.color.constructor.name === 'Array') {
-      const res = {};
-      icon.color.forEach(k => res[k] = this.props.color);
-      return res;
-    }
-
-    return icon.f({
-      [icon.color]: this.props.color
-    })
+    return icon.f({});
   }
 }
 
 SvgIcon.propTypes = {
-  icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
-  color: PropTypes.string
+  icon: PropTypes.oneOf(Object.keys(icons)).isRequired
 }
 
 export default SvgIcon;

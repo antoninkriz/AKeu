@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class PlayPause extends Component {
   render() {
     return (
-      <span className="button play" onClick={this.props.handleClick}>
+      <span className={this.props.className + ' play'} onClick={this.props.onClick}>
         {this.props.mediaPlaying
           ? this.props.buttons.pause
           : this.props.buttons.play
@@ -15,8 +15,9 @@ class PlayPause extends Component {
 }
 
 PlayPause.propTypes = {
+  className: PropTypes.string,
   mediaPlaying: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   buttons: PropTypes.shape({
     play: PropTypes.oneOfType([
       PropTypes.string.isRequired,

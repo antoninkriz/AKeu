@@ -5,6 +5,7 @@ import {secondsToMinutesSeconds} from "../../utils/date";
 import ProgressBar from "./_progressBar"
 import PlayPause from "./_playPause"
 import Mute from "./_mute";
+import classNames from "../../utils/classNames";
 
 export const supportedFileTypes = {
   audio: [
@@ -14,6 +15,9 @@ export const supportedFileTypes = {
     "webm", "ogv", "mp4"
   ]
 };
+
+const TYPE_AUDIO = 'AUDIO';
+const TYPE_VIDEO = 'VIDEO';
 
 export class MediaPlayer extends Component {
   constructor(props) {
@@ -39,9 +43,9 @@ export class MediaPlayer extends Component {
       let indexVideo = supportedFileTypes.video.indexOf(ext);
 
       if (indexAudio !== -1) {
-        this.state.mediaType = "audio";
+        this.state.mediaType = TYPE_AUDIO;
       } else if (indexVideo !== -1) {
-        this.state.mediaType = "video";
+        this.state.mediaType = TYPE_VIDEO;
       } else {
         console.error("MediaPlayer: Invalid file type");
         return;
@@ -57,10 +61,7 @@ export class MediaPlayer extends Component {
 
   componentDidMount() {
     this.media.current.src = this.props.src;
-    this.addEventListeners();
-  }
 
-  addEventListeners = () => {
     this.media.current.addEventListener("error", () => {
       this.setState({message: this.props.messages.error});
     });
@@ -77,7 +78,7 @@ export class MediaPlayer extends Component {
     this.media.current.addEventListener("timeupdate", () => {
       this.updateProgress();
     });
-  };
+  }
 
   updateProgress = () => {
     const {duration, currentTime} = this.media.current;
@@ -111,74 +112,52 @@ export class MediaPlayer extends Component {
   };
 
   render() {
-    let ui, title;
-    if (this.state.message) {
-      ui = (
-        <div className="ui message">
-          <span>{this.state.message}</span>
-        </div>
-      );
-    } else {
-      if (this.state.duration) {
-        ui = (
-          <div className="ui">
-            <span className="progress">
-              {secondsToMinutesSeconds(this.state.duration * this.state.progress)}
-            </span>
-            <ProgressBar
-              progress={this.state.progress}
-              setTime={this.setTime} />
-            <span className="duration">
-              {secondsToMinutesSeconds(this.state.duration)}
-            </span>
-            <Mute
-              handleClick={this.toggleAudio}
-              mediaMuted={this.state.muted}
-              buttons={this.props.buttons} />
-            <PlayPause
-              handleClick={this.togglePlay}
-              mediaPlaying={this.state.playing}
-              buttons={this.props.buttons} />
-          </div>
-        );
-      } else {
-        ui = (
-          <div className="ui loading">
-            <span>{this.props.messages.loading}</span>
-          </div>
-        );
-      }
-    }
-
-    if (this.props.captions.title) {
-      title = (
-        <div className="captions">
-          <span>{this.props.captions.title}</span>
-          {
-            this.props.captions.subtitle ?
-              <span>{this.props.captions.subtitle}</span>
-              :
-              null
-          }
-        </div>
-      );
-    }
+    const {duration, mediaType, muted, playing, progress} = this.state;
+    const {captions, buttons} = this.props;
 
     return (
-      <div className={"mediaPlayer" + (this.state.duration ? " loading" : "") + (" " + this.state.mediaType)}>
-        <div className="media">
-          {
-            this.state.mediaType === "audio" ?
-              (
-                <audio ref={this.media} preload="metadata" />
-              )
-              :
-              <video ref={this.media} preload="metadata" controls />
-          }
-          {this.state.mediaType === "audio" ? ui : null}
-        </div>
-        {title ? title : null}
-      </div>
+      <figure className={classNames({
+        'media': true,
+        [`media--${mediaType.toLowerCase()}`]: true
+      })}>
+        {captions.title &&
+        <figcaption className="media__caption">
+          <span className="media__caption__title">{captions.title}</span>
+          {captions.subtitle && <span className="media__caption__subtitle">{captions.subtitle}</span>}
+        </figcaption>
+        }
+        {mediaType === TYPE_AUDIO ? (
+          <div className="media__wrapper">
+            <audio className="media__wrapper__content" ref={this.media} preload="metadata"/>
+            <div className="media__wrapper__ui">
+              <span className="media__wrapper__ui__progress">
+                {secondsToMinutesSeconds(duration * progress)}
+              </span>
+              <ProgressBar
+                className="media__wrapper__ui__bar"
+                progress={progress}
+                setTime={this.setTime}/>
+              <span className="media__wrapper__ui__progress">
+                {secondsToMinutesSeconds(duration)}
+              </span>
+              <Mute
+                className="media__wrapper__ui__button"
+                onClick={this.toggleAudio}
+                mediaMuted={muted}
+                buttons={buttons}/>
+              <PlayPause
+                className="media__wrapper__ui__button"
+                onClick={this.togglePlay}
+                mediaPlaying={playing}
+                buttons={buttons}/>
+            </div>
+          </div>
+        ) : (
+          <div className="media__wrapper">
+            <video className="media__wrapper__content" ref={this.media} preload="metadata" controls/>
+          </div>
+        )}
+      </figure>
     );
   }
 }
@@ -201,6 +180,7 @@ MediaPlayer.defaultProps = {
 };
 
 MediaPlayer.propTypes = {
+  src: PropTypes.string.isRequired,
   text: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string

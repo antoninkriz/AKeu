@@ -28,149 +28,101 @@
     @include lined();
   }
 
-  figure {
-    display: block;
+  .media {
+    display: flex;
+    flex-direction: column-reverse;
     width: fit-content;
     max-width: 80%;
-    margin: 20px auto 30px;
+    margin: ($size / 2) auto $size;
 
-    & > div.wrapper {
+    &--audio {
+      width: unset;
+    }
+
+    &__caption {
+      display: inline-block;
+      width: fit-content;
+      background: $color-text;
+      margin-left: $size;
+      padding: ($size / 6) ($size / 2);
+      z-index: 2;
+
+      &__title {
+        display: block;
+        font-weight: 600;
+        color: $color-accent;
+      }
+
+      &__subtitle {
+        display: block;
+        font-size: .875rem;
+        color: $color-accent;
+      }
+    }
+
+    &__wrapper {
       position: relative;
       z-index: 1;
 
-      & > img {
-        max-width: 100%;
-        margin: auto;
-        display: block;
-      }
-
       @include lined();
-    }
 
-    & > figcaption {
-      display: inline-block;
-      background: $color-text;
-      margin-left: 35px;
-      padding: 15px 15px 5px;
-
-      & > span {
+      &__content {
         display: block;
-        color: $color-accent;
-
-        &:first-of-type {
-          font-weight: 600;
-        }
-
-        &:nth-of-type(2) {
-          font-size: .875rem;
-        }
-      }
-    }
-  }
-}
-
-div.mediaPlayer {
-  margin: ($size / 1.5) auto $size;
-
-  @media #{$media} {
-    width: 80%;
-  }
-
-  &.audio {
-    & > div.media {
-      background: $color-gray;
-    }
-  }
-
-  &.video {
-    & > div.media {
-      position: relative;
-      padding-bottom: 56.25%;
-    }
-  }
-
-  & > div.captions {
-    display: inline-block;
-    background: $color-accent;
-    margin-left: $size;
-    padding: ($size / 6) ($size / 2);
-
-    & > span {
-      display: block;
-      color: $color-text;
-
-      &:first-of-type {
-        font-weight: 600;
+        max-width: 100%;
+        max-height: $size * 24;
+        margin: auto;
+        border-radius: $size / 10;
       }
 
-      &:nth-of-type(2) {
-        font-size: .875rem;
-      }
-    }
-  }
-
-  div.media {
-    position: relative;
-    z-index: 1;
-    @include lined();
-
-    & > audio {
-      display: none;
-    }
-
-    & > video {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      object-position: top;
-      border-radius: ($size / 10);
-    }
-
-    & > div.ui {
-      padding: ($size / 4) ($size / 2);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-align: center;
-
-      & > div.progressBar {
-        flex-grow: 2;
-        height: ($size / 2);
-        margin: ($size / 4);
+      &__ui {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: ($size / 8) ($size / 4);
         background: $color-text;
-        cursor: pointer;
+        color: $color-background;
+        border-radius: ($size / 10);
+        text-align: center;
 
-        & > div.timeBar {
-          height: 16px;
-          background: $color-primary;
+        &__bar {
+          flex-grow: 2;
+          background: rgba($color-yellow, .5);
+          cursor: pointer;
+
+          &__time {
+            height: $size / 4;
+            background: $color-yellow;
+            transition: width .3s ease, color .15s ease;
+          }
+        }
+
+        &__progress {
+          padding: $size / 3;
+          font-size: .9rem;
+          line-height: $size;
+        }
+
+        &__button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: $size / 3;
+          font-size: $size;
+          cursor: pointer;
 
           &:hover {
-            background: $color-yellow;
+            svg {
+              fill: $color-accent;
+              stroke: $color-accent;
+            }
           }
-        }
-      }
 
-      & > span {
-        height: $size;
-        line-height: $size;
-        margin: ($size / 3) 0 ($size / 3) ($size / 3);
-
-        &.button {
-          cursor: pointer;
-          font-size: $size;
-        }
-
-        & > svg {
-          fill: $color-accent;
-        }
-
-        &:hover {
-          & > svg {
-            fill: $color-accent;
+          svg {
+            height: $size / 1.5;
+            width: $size / 1.5;
+            fill: rgba($color-accent, .5);
+            stroke: rgba($color-accent, .5);
+            transition: fill .15s ease, stroke .15s ease;
           }
         }
       }
@@ -178,8 +130,3 @@ div.mediaPlayer {
   }
 }
 
-
-
-@mixin markdown-content {
-
-}

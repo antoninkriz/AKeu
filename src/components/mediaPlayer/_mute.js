@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 class Mute extends Component {
   render() {
     return (
-      <span className="button mute" onClick={this.props.handleClick}>
+      <span className={this.props.className + ' mute'} onClick={this.props.onClick}>
         {this.props.mediaMuted
-          ? this.props.buttons.mute
-          : this.props.buttons.unmute
+          ? this.props.buttons.unmute
+          : this.props.buttons.mute
         }
       </span>
     );
@@ -15,8 +15,9 @@ class Mute extends Component {
 }
 
 Mute.propTypes = {
+  className: PropTypes.string,
   mediaMuted: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   buttons: PropTypes.shape({
     mute: PropTypes.oneOfType([
       PropTypes.string.isRequired,

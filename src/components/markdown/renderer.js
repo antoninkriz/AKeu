@@ -17,8 +17,7 @@ const imageRenderer = (props) => {
   if (!props.src)
     return null;
 
-  let split = props.src.split(".");
-  let ext = split[split.length - 1];
+  let ext = props.src.split(".").pop();
   if (supportedFileTypes.audio.indexOf(ext) !== -1 || supportedFileTypes.video.indexOf(ext) !== -1) {
     const buttons = {
       play: <SvgIcon icon="play" />,
@@ -37,19 +36,16 @@ const imageRenderer = (props) => {
     );
   } else {
     return (
-      <figure>
-        <div className="wrapper">
-          <img alt="" {...props} />
-        </div>
-        {
-          props.title ?
-            <figcaption>
-              <span>{props.title}</span>
-              {props.alt ? <span>{props.alt}</span> : null}
-            </figcaption>
-            :
-            null
+      <figure className="media">
+        {props.title &&
+          <figcaption className="media__caption">
+            <span className="media__caption__title">{props.title}</span>
+            {props.alt && <span className="media__caption__subtitle">{props.alt}</span>}
+          </figcaption>
         }
+        <div className="media__wrapper">
+          <img className="media__wrapper__content" src={props.src} alt={props.alt} />
+        </div>
       </figure>
     );
   }
@@ -124,7 +120,8 @@ const renderers = {
   image: imageRenderer,
   imageReference: imageRenderer,
   paragraph: paragraphRenderer,
-  link: linkRenderer
+  link: linkRenderer,
+  heading: headingRenderer,
 };
 
 export default renderers;
