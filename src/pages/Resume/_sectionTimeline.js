@@ -55,7 +55,7 @@ SectionTimeline.propTypes = {
       duration: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       stack: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string.isRequired)),
-    }).isRequired
+    })
   ).isRequired
 }
 

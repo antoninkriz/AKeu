@@ -1,5 +1,22 @@
 @import "variables";
 
+@mixin title($color) {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: $size;
+  left: $size;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: $size * 2;
+  color: $color;
+
+  @media #{$media} {
+    top: $size * 2;
+    left: $size * 2;
+  }
+}
+
 @mixin lined() {
   position: relative;
 

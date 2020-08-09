@@ -1,8 +1,29 @@
-export const dateToYearMonths = (date) => `${date.getFullYear()}/${date.getMonth()}`;
+const getDate = (d) => {
+  if (!d)
+    throw Error(`Not a date - ${d}`);
 
-export const dateToYear = (date) => `${date.getFullYear()}`;
+  if (!d.constructor)
+    throw Error(`Not an object - ${d}`);
+
+  switch (d.constructor.name) {
+    case "Date":
+      return d;
+    case "String" :
+    case "Number":
+      return new Date(d);
+    default:
+      throw Error(`Invalid object - ${d}`);
+  }
+};
+
+export const dateToYearMonths = (date) => `${getDate(date).getFullYear()}/${getDate(date).getMonth()}`;
+
+export const dateToYear = (date) => `${getDate(date).getFullYear()}`;
 
 export const dateToHumanDuration = (d1, d2) => {
+  d1 = getDate(d1);
+  d2 = d2 ? getDate(d2) : null;
+
   const MS_PER_DAY = 1000 * 60 * 60 * 24;
   const AVG_DAYS_PER_MONTH = 7 * 31 + 5 * 30 + 28.25;
 

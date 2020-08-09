@@ -4,13 +4,15 @@ import thunk from "redux-thunk";
 // Reducers
 import uiReducer from "./reducers/uiReducer";
 import userReducer from "./reducers/userReducer";
+import dataReducer from "./reducers/dataReducer";
 
 const initialState = {};
 const middlewares = [thunk];
 
 const reducers = combineReducers({
   ui: uiReducer,
-  user: userReducer
+  user: userReducer,
+  data: dataReducer
 });
 
 // React DevTools extension

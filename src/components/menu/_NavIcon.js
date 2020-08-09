@@ -8,7 +8,7 @@ import "./_NavIcon.scss";
 
 class NavIcon extends React.PureComponent {
   render() {
-    const {isMenuOpen, className} = this.props;
+    const {isMenuOpen, className, onClick} = this.props;
 
     return (
       <div className={classNames({
@@ -16,7 +16,7 @@ class NavIcon extends React.PureComponent {
         'icon': true,
         'icon--menu': !isMenuOpen,
         'icon--close': isMenuOpen
-      })}>
+      })} onClick={onClick}>
         <span className="icon__line"/>
       </div>
     );
@@ -24,7 +24,8 @@ class NavIcon extends React.PureComponent {
 }
 
 NavIcon.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired
+  isMenuOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 export default NavIcon;

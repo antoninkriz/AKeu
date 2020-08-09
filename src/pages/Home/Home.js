@@ -16,6 +16,7 @@ import {getProfile} from "../../redux/actions/userActions";
 import HexagonImage from "../../components/hexagonImage/HexagonImage";
 
 import "./Home.scss";
+import {Helmet} from "react-helmet";
 
 const getSwooshParams = () => {
   let width = (.5 + Math.random()) * 50;
@@ -38,7 +39,23 @@ const getSwooshParams = () => {
 }
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  updateDimensions() {
+    this.setState({width: window.innerWidth, height: window.innerHeight});
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
   componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+
     this.props.getProfile();
   }
 
@@ -49,12 +66,17 @@ class Home extends React.Component {
     for (let i = 0; i < 50; i++)
       svg.push(
         <ParallaxLayer key={i} {...getSwooshParams()}>
-          <img src="/svg/swoosh.svg" alt=""/>
+          <img src="/svg/swoosh.svg" alt="" />
         </ParallaxLayer>
       );
 
     return (
       <div className="home">
+        <Helmet>
+          <title>Who am I | Antonín Kříž</title>
+          <meta name="description" content="The personal website of Antonín Kříž - web and mobile developer and a student" />
+        </Helmet>
+        <h1 className="home__title">{isMobile() ? 'AK' : 'Antonín Kříž'}</h1>
         <Parallax pages={2}>
           {!isMobile() && svg}
           <ParallaxLayer offset={0} speed={-.2}>
@@ -71,7 +93,7 @@ class Home extends React.Component {
                 }
               </div>
               <div className="home__hello__photo">
-                <HexagonImage imageUrl={photo} size={`20${windowUnit()}`}/>
+                <HexagonImage imageUrl={photo} size={`20${windowUnit()}`} />
               </div>
             </section>
           </ParallaxLayer>
@@ -82,20 +104,20 @@ class Home extends React.Component {
                   <div className="home__section__content__heading__title">Who am I?</div>
                   <div className="home__section__content__heading__buttons">
                     <div
-                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--green"/>
+                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--green" />
                     <div
-                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--orange"/>
+                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--orange" />
                     <div
-                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--red"/>
+                      className="home__section__content__heading__buttons__button home__section__content__heading__buttons__button--red" />
                   </div>
                 </div>
                 <div className="home__section__content__body">
                   <h1>Hi</h1> {/* TODO add to API */}
                   <p>
-                    I'm Antonín Kříž, 21 y.o. web developer from Prague, Czech Republic and a student at FIT CTU.<br/>
+                    I'm Antonín Kříž, 21 y.o. web developer from Prague, Czech Republic and a student at FIT CTU.<br />
                     I mainly focus on both front-end and back-end web development, but I have experience with and
                     passion for mobile development too!
-                    I have over 3 years of professional experience and many more as a hobbyist.<br/>
+                    I have over 3 years of professional experience and many more as a hobbyist.<br />
                     If you want to talk feel free to contact me <Link to="/contact-me">here</Link>
                   </p>
                 </div>

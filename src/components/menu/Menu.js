@@ -48,10 +48,15 @@ const Menu = () => {
     config: springsConfig.menu
   }));
 
-  const toggleMenu = () => {
-    menuSet({n: !isMenuOpen ? 400 : 0});
-    dispatch(isMenuOpen ? menuClose() : menuOpen());
-  };
+  const openMenu = () => {
+    menuSet({n: 400});
+    dispatch(menuOpen());
+  }
+
+  const closeMenu = () => {
+    menuSet({n: 0});
+    dispatch(menuClose());
+  }
 
   // Redux stuff
   const dispatch = useDispatch();
@@ -61,7 +66,7 @@ const Menu = () => {
   });
 
   return (
-    <animated.div className="menu" onClick={toggleMenu} style={{
+    <animated.div className="menu" style={{
       width: menuProps.n.interpolate(transitions.menu.circle.width),
       height: menuProps.n.interpolate(transitions.menu.circle.height),
       top: menuProps.n.interpolate(transitions.menu.circle.top),
@@ -71,11 +76,11 @@ const Menu = () => {
         top: menuProps.n.interpolate(transitions.menu.content.top),
         right: menuProps.n.interpolate(transitions.menu.content.right),
       }}>
-        <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen}/>
+        <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen} onClick={isMenuOpen ? closeMenu : openMenu}/>
         <div className="menu__content__links">
-          <Link className="menu__content__links__link" to="/">Who am I</Link>
-          <Link className="menu__content__links__link" to="/cv">CV</Link>
-          <Link className="menu__content__links__link" to="/contact-me">Contact Me</Link>
+          <Link className="menu__content__links__link" to="/" onClick={closeMenu}>Who am I</Link>
+          <Link className="menu__content__links__link" to="/cv" onClick={closeMenu}>CV</Link>
+          <Link className="menu__content__links__link" to="/contact-me" onClick={closeMenu}>Contact Me</Link>
         </div>
       </animated.div>
     </animated.div>

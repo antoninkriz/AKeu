@@ -10,6 +10,7 @@ import {getProfile} from "../../redux/actions/userActions";
 import SvgIcon from "../../components/svg/SvgIcon"
 
 import "./ContactMe.scss";
+import {Helmet} from "react-helmet";
 
 class ContactMe extends React.Component {
   copyEmail() {
@@ -25,6 +26,11 @@ class ContactMe extends React.Component {
 
     return (
       <div className="contacts">
+        <Helmet>
+          <title>Contact Me | Antonín Kříž</title>
+          <meta name="description" content="Contacts Antonín Kříž - web and mobile developer and a student. Email, link to LinkedIn, GitHub and Keybase." />
+        </Helmet>
+        <h1 className="contacts__title">Contact Me</h1>
         <a className="contacts__email" href={`mailto:${profile.email}`} onClick={this.copyEmail.bind(this)}>
           {profile.email}
         </a>

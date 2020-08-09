@@ -1,7 +1,11 @@
 import React from "react";
+import {connect} from "react-redux";
 
 // Utils
 import {dateToHumanDuration, dateToYear, dateToYearMonths} from "../../utils/date";
+
+// Redux
+import {getResume} from "../../redux/actions/dataActions";
 
 // Components
 import SectionTimeline from "./_sectionTimeline";
@@ -9,181 +13,17 @@ import SectionArticles from "./_sectionArticles";
 import SectionItems from "./_sectionItems";
 
 import "./Resume.scss";
+import {Helmet} from "react-helmet";
 
 class Resume extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // TODO: Request data from a server
-    this.state = {
-      experience: [
-        {
-          position: 'Web Developer',
-          name: 'Alza.cz',
-          logo: 'https://www.antoninkriz.eu/assets/images/logo/alza.png',
-          link: 'https://www.alza.cz',
-          from: new Date('2017-07'),
-          to: null,
-          place: 'Prague',
-          text: 'This is some short description lorem ipsum dolor sit amet',
-          stack: [
-            ['C#', 'ASP.Net', '.Net Core'],
-            ['React', 'JavaScript', 'TypeScript', 'jQuery'],
-            ['SCSS / SASS', 'LESS', 'HTML5'],
-            ['SQL', 'T-SQL'],
-            ['JetBrains WebStorm', 'Microsoft Visual Studio', 'SQL Server Management Studio', 'Storybook'],
-            ['Jira', 'MS Teams']
-          ]
-        },
-        {
-          position: 'Web Developer',
-          name: 'Alza.cz',
-          logo: 'https://www.antoninkriz.eu/assets/images/logo/alza.png',
-          link: 'https://www.alza.cz',
-          from: new Date('2017-07'),
-          to: null,
-          place: 'Prague',
-          text: 'This is some short description lorem ipsum dolor sit amet',
-          stack: [
-            ['C#', 'ASP.Net', '.Net Core'],
-            ['React', 'JavaScript', 'TypeScript', 'jQuery'],
-            ['SCSS / SASS', 'LESS', 'HTML5'],
-            ['SQL', 'T-SQL'],
-            ['JetBrains WebStorm', 'Microsoft Visual Studio', 'SQL Server Management Studio', 'Storybook'],
-            ['Jira', 'MS Teams']
-          ]
-        }
-      ],
-      education: [
-        {
-          name: 'FIT CTU',
-          logo: 'https://www.antoninkriz.eu/assets/images/logo/cvut.png',
-          link: 'https://fit.cvut.cz',
-          from: new Date('2019'),
-          to: new Date('2020'),
-          place: 'Prague',
-          text: '» 3rd semester // TODO\n' +
-            '\n' +
-            '✓ 2nd semester\n' +
-            '• C++ - programming and OOP, 2nd place out of 654 students\n' +
-            '• C# - .Net Framework, ASP.Net, WPF\n' +
-            '• Python - numpy, Pandas\n' +
-            '• Databases - Oracle SQL, database design\n' +
-            '• Linear Algebra\n' +
-            '• Assembler/ Computer structures and architectures\n' +
-            '\n' +
-            '✓ 1st semester\n' +
-            '• C - programming and algorithms, 26th place out of 834 students\n' +
-            '• Bash Shell scripting and programming\n' +
-            '• Linux basics\n' +
-            '• Electronics - Digital and Analog Circuits\n' +
-            '• Elements of Calculus\n' +
-            '• Mathematical logic',
-        },
-        {
-          name: 'FIT CTU',
-          logo: 'https://www.antoninkriz.eu/assets/images/logo/cvut.png',
-          link: 'https://fit.cvut.cz',
-          from: new Date('2019'),
-          to: new Date('2020'),
-          place: 'Prague',
-          text: '» 3rd semester // TODO\n' +
-            '\n' +
-            '✓ 2nd semester\n' +
-            '• C++ - programming and OOP, 2nd place out of 654 students\n' +
-            '• C# - .Net Framework, ASP.Net, WPF\n' +
-            '• Python - numpy, Pandas\n' +
-            '• Databases - Oracle SQL, database design\n' +
-            '• Linear Algebra\n' +
-            '• Assembler/ Computer structures and architectures\n' +
-            '\n' +
-            '✓ 1st semester\n' +
-            '• C - programming and algorithms, 26th place out of 834 students\n' +
-            '• Bash Shell scripting and programming\n' +
-            '• Linux basics\n' +
-            '• Electronics - Digital and Analog Circuits\n' +
-            '• Elements of Calculus\n' +
-            '• Mathematical logic',
-        },
-      ],
-      projects: [
-        {
-          title: 'PedF CUNI - User-friendly Recognition of Completion of Courses',
-          logo: 'https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png',
-          link: 'karolinka',
-          description: 'High-school seminary work written as microservices in NetCore, Angular and deployed using Docker',
-        },
-        {
-          title: 'PedF CUNI - User-friendly Recognition of Completion of Courses',
-          logo: 'https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png',
-          link: 'karolinka',
-          description: 'High-school seminary work written as microservices in NetCore, Angular and deployed using Docker',
-        },
-        {
-          title: 'PedF CUNI - User-friendly Recognition of Completion of Courses',
-          logo: 'https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png',
-          link: 'karolinka',
-          description: 'High-school seminary work written as microservices in NetCore, Angular and deployed using Docker',
-        }
-      ],
-      certifications: [
-        {
-          title: 'Front End Libraries',
-          from: 'freeCodeCamp',
-          when: new Date('2020-07'),
-          logo: 'https://media-exp1.licdn.com/dms/image/C560BAQHli6etYJTCrA/company-logo_100_100/0?e=1605139200&v=beta&t=cx38WLKM_B4H2QVhXT99dO3Txt88cJzxnIbCK88dS-Y',
-          link: 'karolinka',
-        },
-        {
-          title: 'Front End Libraries',
-          from: 'freeCodeCamp',
-          when: new Date('2020-07'),
-          logo: 'https://media-exp1.licdn.com/dms/image/C560BAQHli6etYJTCrA/company-logo_100_100/0?e=1605139200&v=beta&t=cx38WLKM_B4H2QVhXT99dO3Txt88cJzxnIbCK88dS-Y',
-          link: 'karolinka',
-        },
-      ],
-      accomplishments: [
-        {
-          title: '#hack19 - Flutter Hackathon Prague - 2nd place',
-          logo: 'https://www.antoninkriz.eu/assets/images/logo/flutterhack19.png',
-          description: '#hack19 Prague was a Flutter hackathon organized by Inventi <Labs/>. Vitaliy Misurenko and I had a few hours to pitch some flutter-community related idea, build an app and present it. To that point, both Vitaliy and I haven\'t really worked with Flutter before, so learning on the go with a short deadline was a really interesting experience.',
-        }
-      ],
-      stack: [
-        ['React', 'C#', 'React', 'C#'],
-        ['React', 'C#'],
-        ['React', 'C#', 'React', 'C#', 'React', 'C#', 'React', 'C#', 'React', 'C#', 'React', 'C#']
-      ],
-      languages: [
-        {
-          title: 'Czech',
-          text: 'Native / Mother tongue'
-        },
-        {
-          title: 'English',
-          text: 'Full professional proficiency'
-        },
-        {
-          title: 'Slovak',
-          text: 'Professional working proficiency'
-        },
-        {
-          title: 'German',
-          text: 'Limited proficiency'
-        },
-      ],
-      other: [
-        {
-          title: 'Driver\'s licence',
-          text: 'Type B, not an active driver'
-        },
-      ]
-    }
+  componentDidMount() {
+    this.props.getResume();
   }
 
-
   render() {
-    const experience = this.state.experience.map(x => ({
+    const resume = this.props.resume;
+
+    const experience = resume.experience.map(x => ({
       title: `${x.position} @ ${x.name}`,
       logo: x.logo,
       name: x.name,
@@ -193,7 +33,7 @@ class Resume extends React.Component {
       stack: x.stack
     }));
 
-    const education = this.state.education.map(x => ({
+    const education = resume.education.map(x => ({
       title: x.name,
       logo: x.logo,
       name: x.name,
@@ -202,7 +42,7 @@ class Resume extends React.Component {
       description: x.text
     }));
 
-    const certifications = this.state.certifications.map(x => ({
+    const certifications = resume.certifications.map(x => ({
       title: `${x.title} – ${x.from}`,
       logo: x.logo,
       name: x.title,
@@ -213,16 +53,30 @@ class Resume extends React.Component {
     return (
       <div className="resume">
         <h1 className="resume__title">CV</h1>
+        <Helmet>
+          <title>Resume | Antonín Kříž</title>
+          <meta name="description" content="Resume of Antonín Kříž - web and mobile developer and a student. Work experience, education, projects, certifications, awards and more." />
+        </Helmet>
         <SectionTimeline title="EXPERIENCE" events={experience}/>
         <SectionTimeline title="EDUCATION" events={education}/>
-        <SectionArticles title="PROJECTS" articles={this.state.projects}/>
+        <SectionArticles title="PROJECTS" articles={resume.projects}/>
         <SectionArticles title="CERTIFICATIONS" articles={certifications} readMore="LINK"/>
-        <SectionArticles title="HONORS/AWARDS" articles={this.state.accomplishments}/>
-        <SectionItems title="TECH STACK" items={this.state.stack} type="enum"/>
-        <SectionItems title="LANGUAGES" items={this.state.languages} type="titled"/>
+        <SectionArticles title="HONORS/AWARDS" articles={resume.accomplishments}/>
+        <SectionItems title="TECH STACK" items={resume.stack} type="enum"/>
+        <SectionItems title="LANGUAGES" items={resume.languages} type="titled"/>
+        <SectionItems title="OTHER" items={resume.other} type="titled"/>
       </div>
     );
   }
 }
 
-export default Resume;
+
+const mapStateToProps = (state) => ({
+  loading: state.ui.loading,
+  resume: state.data.resume
+});
+
+export default connect(
+  mapStateToProps,
+  {getResume}
+)(Resume);

@@ -57,9 +57,9 @@ SectionArticles.propTypes = {
       title: PropTypes.string.isRequired,
       logo: PropTypes.string.isRequired,
       link: PropTypes.string,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.string,
       date: PropTypes.string
-    }).isRequired
+    })
   ).isRequired,
   readMore: PropTypes.string
 }

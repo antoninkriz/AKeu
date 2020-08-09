@@ -6,3 +6,6 @@ export const LOADING_END = 'LOADING_END';
 
 // User types
 export const USER_PROFILE = 'USER_PROFILE';
+
+// Data types
+export const DATA_RESUME = 'DATA_RESUME';

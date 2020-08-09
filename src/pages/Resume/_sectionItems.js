@@ -36,8 +36,8 @@ SectionItems.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired
-      }).isRequired,
-      PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+      }),
+      PropTypes.arrayOf(PropTypes.string.isRequired)
     ])
   ).isRequired,
   readMore: PropTypes.string
