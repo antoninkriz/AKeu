@@ -20,10 +20,22 @@ class SectionArticles extends React.Component {
             <article className="section__list__project" key={i}>
               <img className="section__list__project__logo" src={a.logo} alt={a.title}/>
               <div className="section__list__project__content">
-                <h3 className={classNames({
-                  "section__list__project__content__title": true,
-                  "section__list__project__content__title--link": !!a.link,
-                })}>{a.title}</h3>
+                {a.link ?
+                  (/https?:\/\//.test(a.link) ? (
+                      <a className="section__list__project__content__title section__list__project__content__title--link" href={a.link} target="_blank" rel="noopener noreferrer">
+                        <h3 className="section__list__project__content__title__text">{a.title}</h3>
+                      </a>
+                    ) : (
+                      <Link className="section__list__project__content__title section__list__project__content__title--link" to={a.link}>
+                        <h3 className="section__list__project__content__title__text">{a.title}</h3>
+                      </Link>
+                    )
+                  ) : (
+                    <div className="section__list__project__content__title">
+                      <h3 className="section__list__project__content__title__text">{a.title}</h3>
+                    </div>
+                  )
+                }
                 {a.date && <span className="section__list__project__content__date">{a.date}</span>}
                 {a.description && <p className="section__list__project__content__description">{a.description}</p>}
                 {a.link &&

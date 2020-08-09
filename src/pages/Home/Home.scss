@@ -7,6 +7,7 @@
 
   &__title {
     @include title($color-primary);
+    visibility: hidden;
   }
 
   &__hello {
