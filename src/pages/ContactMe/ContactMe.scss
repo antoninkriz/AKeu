@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .contacts {
   width: 100%;
@@ -27,27 +28,10 @@
     }
 
     &:hover {
-      color: $color-accent;
+      color: $color-accent; // TODO: Remove after implementing markdown
     }
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: calc(100% - #{($size / 2)} * 2);
-      height: 100%;
-      margin: auto;
-      opacity: 0;
-      background: url('/svg/underline.svg') 0 100%/auto 25px repeat-x;
-      transition: opacity .15s ease;
-    }
-
-    &:hover:after {
-      opacity: 1;
-    }
+    @include underline(big);
   }
 
   &__links {

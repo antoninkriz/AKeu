@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./NavIcon.scss";
+// Utils
 import classNames from "../../utils/classNames";
+
+import "./_NavIcon.scss";
 
 class NavIcon extends React.PureComponent {
   render() {

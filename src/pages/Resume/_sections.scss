@@ -1,0 +1,292 @@
+@import "../../variables";
+@import "../../mixins";
+
+.section {
+  width: 100%;
+  padding: ($size * 3) 0 0;
+
+  &__title {
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: $size / 4;
+    color: $color-accent;
+
+    @media #{$media} {
+      font-size: 3rem;
+      letter-spacing: $size;
+    }
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: $size * 30;
+    margin: auto;
+
+    &__event {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: $size ($size / 2);
+      text-align: left;
+      font-weight: 300;
+
+      @media #{$media} {
+        flex-direction: row;
+        align-items: flex-start;
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: $size / 10;
+          left: -$size * 2;
+          bottom: -2 * $size;
+          background: $color-accent;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          height: $size;
+          width: $size;
+          left: -($size * 2 + ($size / 2) - ($size / 20));
+          top: $size * 2;
+          border-radius: $size;
+          background: $color-accent;
+          box-shadow: 0 0 5px rgba($color-text, .5);
+          z-index: 1;
+        }
+
+        &:last-of-type {
+          &:before {
+            height: $size * 4;
+            bottom: unset;
+            border-radius: 0 0 ($size / 10) ($size / 10);
+          }
+        }
+      }
+
+      &__logo {
+        width: $size * 3;
+        height: $size * 3;
+        background: $color-background;
+        border-radius: $size / 10;
+      }
+
+      &__content {
+        width: 100%;
+        color: $color-background;
+        letter-spacing: $size / 30;
+
+        @media #{$media} {
+          padding: 0 ($size * 2);
+        }
+
+        &__title {
+          margin: ($size / 5) 0;
+          font-size: 1.25rem;
+          color: $color-accent !important; // TODO: remove !important after  markdown integration
+          text-shadow: 0 0 5px rgba($color-text, .5);
+          transition: text-shadow .15s ease;
+
+          @media #{$media} {
+            margin: 0 0 ($size / 2);
+            padding: $size 0 0;
+            line-height: $size;
+          }
+
+          &--link {
+            &:hover {
+              color: $color-accent !important; // TODO: remove !important after  markdown integration
+              text-shadow: 0 0 3px $color-accent;
+            }
+          }
+        }
+
+        &__duration {
+          color: $color-accent;
+          font-size: .9rem;
+        }
+
+        &__description {
+          margin: ($size / 2) 0;
+
+          &__title {
+            font-size: .85rem;
+            color: $color-accent;
+          }
+
+          &__text {
+            padding: 0 0 0 ($size / 5);
+            margin: 0;
+          }
+        }
+
+        &__stack {
+          &__title {
+            font-size: .85rem;
+            color: $color-accent;
+          }
+
+          &__row {
+            padding: 0 0 0 ($size / 5);
+
+            &__item {
+              position: relative;
+              display: inline-block;
+              padding-right: $size / 2;
+              font-size: .9rem;
+
+              &:not(:last-of-type):after {
+                content: "•";
+                position: absolute;
+                right: calc(#{$size / 4} - #{.85rem / 4});
+                color: $color-accent
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    max-width: $size * 30;
+    margin: auto;
+
+    &__project {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: $size ($size / 2);
+      text-align: left;
+
+      @media #{$media} {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      &__logo {
+        width: $size * 3;
+        height: $size * 3;
+        background: $color-background;
+        border-radius: $size / 10;
+      }
+
+      &__content {
+        width: 100%;
+        color: $color-background;
+        letter-spacing: $size / 30;
+
+        @media #{$media} {
+          padding: 0 ($size * 2);
+        }
+
+        &__title {
+          margin: 0;
+          padding: $size 0 0;
+          font-size: 1.25rem;
+          color: $color-accent !important; // TODO: remove !important after  markdown integration
+          text-shadow: 0 0 5px rgba($color-text, .5);
+          transition: text-shadow .15s ease;
+
+          @media #{$media} {
+            margin: 0 0 ($size / 5);
+            padding: $size 0 0;
+            line-height: $size;
+          }
+
+          &:hover {
+            color: $color-accent !important; // TODO: remove !important after  markdown integration
+            text-shadow: 0 0 3px $color-accent;
+          }
+        }
+
+        &__date {
+          padding: 0 0 0 ($size / 5);
+          font-size: .85rem;
+          font-weight: 300;
+        }
+
+        &__description {
+          padding: 0 0 0 ($size / 5);
+          font-weight: 300;
+        }
+
+        &__link {
+          display: flex;
+          padding: ($size / 3) $size;
+          float: right;
+          color: $color-accent !important; // TODO: remove !important after  markdown integration
+          border: solid 1px transparent;
+          transition: border-color .15s ease;
+
+          &:hover {
+            border-color: $color-accent;
+          }
+
+          svg {
+            width: 1rem;
+            margin-left: $size;
+            stroke: $color-accent;
+          }
+        }
+      }
+    }
+  }
+
+  &__items {
+    max-width: $size * 20;
+    margin: auto;
+
+    &__row {
+      padding: 0 0 0 ($size / 5);
+
+      &__token {
+        position: relative;
+        display: inline-block;
+        padding-right: $size / 2;
+        font-weight: 300;
+        line-height: $size;
+        color: $color-background;
+
+        &:not(:last-of-type):after {
+          content: "•";
+          position: absolute;
+          right: calc(#{$size / 4} - #{.85rem / 4});
+          color: $color-accent
+        }
+      }
+    }
+
+    &__item {
+      position: relative;
+      padding: ($size / 2) ($size / 2) 0;
+      text-align: left;
+
+      &__title {
+        margin: 0;
+        padding: 0;
+        font-size: 1.25rem;
+        color: $color-accent !important; // TODO: remove !important after  markdown integration
+        text-shadow: 0 0 5px rgba($color-text, .5);
+        transition: text-shadow .15s ease;
+      }
+
+      &__text {
+        padding: 0 0 0 ($size / 5);
+        margin: $size / 2 0;
+        font-weight: 300;
+        font-size: .9rem;
+        color: $color-background;
+      }
+    }
+  }
+}

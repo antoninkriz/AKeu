@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: $color-dark;
+  background: $color-white;
+  text-shadow: 2px 2px $color-accent;
+}
+
 a {
   text-decoration: none;
   color: $color-blue;

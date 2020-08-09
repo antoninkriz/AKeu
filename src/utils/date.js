@@ -1,4 +1,6 @@
-export const dateToYearMonths = (date) => `${date.getFullYear()}/${date.getMonth()}`
+export const dateToYearMonths = (date) => `${date.getFullYear()}/${date.getMonth()}`;
+
+export const dateToYear = (date) => `${date.getFullYear()}`;
 
 export const dateToHumanDuration = (d1, d2) => {
   const MS_PER_DAY = 1000 * 60 * 60 * 24;

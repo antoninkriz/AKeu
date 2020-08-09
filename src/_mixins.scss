@@ -1,0 +1,75 @@
+@import "variables";
+
+@mixin lined() {
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+    border-radius: $size / 10;
+    transition: top .15s ease, left .15s ease;
+  }
+
+  &:before {
+    mask-image: url('/svg/lined.svg');
+    mask-size: ($size / 2.5) ($size / 2.5);
+    background: $color-accent;
+  }
+
+  &:after {
+    background-size: ($size / 2.5) ($size / 2.5);
+    background: rgba($color-text, .5);
+  }
+
+  &:hover {
+    &:before {
+      top: ($size / 2.5);
+      left: ($size / 2.5);
+    }
+
+    &:after {
+      top: ($size / 5);
+      left: ($size / 5);
+    }
+  }
+}
+
+@mixin underline($size) {
+  position: relative;
+
+  @if $size == big {
+    padding-bottom: $size;
+  } @else if $size == small {
+    padding-bottom: $size / 2;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: calc(100% - #{($size / 2)} * 2);
+    height: 100%;
+    margin: auto;
+    opacity: 0;
+    transition: opacity .15s ease;
+
+    @if $size == big {
+      background: url('/svg/underline.svg') 0 100%/auto 25px repeat-x;
+    } @else if $size == small {
+      background: url('/svg/underline.svg') 0 100%/auto 12px repeat-x;
+    }
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+}

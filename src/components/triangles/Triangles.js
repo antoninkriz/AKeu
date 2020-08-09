@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {animated, useSpring} from "react-spring";
 
-import './Triangles.scss'
+import "./Triangles.scss";
 
 const springsConfig = {
   parallax: {mass: 10, tension: 550, friction: 150},

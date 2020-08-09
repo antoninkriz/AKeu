@@ -3,137 +3,23 @@
 .resume {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  padding: 0 0 ($size * 3);
   background: $color-dark;
   overflow-x: hidden;
+  overflow-y: scroll;
 
-  &__timeline {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: $size * 30;
+  &__title {
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: $size / 4;
+    color: $color-accent;
 
-    &__event {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: $size ($size / 2);
-      text-align: left;
-      font-weight: 300;
-
-      @media #{$media} {
-        flex-direction: row;
-        align-items: flex-start;
-
-        &:before {
-          content: "";
-          position: absolute;
-          height: 100%;
-          width: $size / 10;
-          left: -$size * 2;
-          bottom: -1.5 * $size;
-          background: $color-accent;
-        }
-
-        &:after {
-          content: "";
-          position: absolute;
-          height: $size;
-          width: $size;
-          left: -($size * 2 + ($size / 2) - ($size / 20));
-          top: (($size * 3) / 2) - $size / 2;
-          border-radius: $size;
-          background: $color-accent;
-          box-shadow: 0 0 5px rgba($color-text, .5);
-          z-index: 1;
-        }
-
-        &:last-of-type {
-          &:before {
-            height: $size * 4;
-            top: 0;
-            bottom: unset;
-            border-radius: 0 0 ($size / 10) ($size / 10);
-          }
-        }
-      }
-
-      &__logo {
-        width: $size * 3;
-        height: $size * 3;
-        background: $color-background;
-        border-radius: $size / 10;
-      }
-
-      &__content {
-        color: $color-background;
-
-        @media #{$media} {
-          padding: 0 $size * 2;
-        }
-
-        &__title {
-          margin: 0 0 ($size / 5);
-          font-size: 1.75rem;
-          color: $color-accent;
-          text-shadow: 0 0 5px rgba($color-text, .5);
-
-          @media #{$media} {
-            padding: $size 0 0;
-            line-height: $size;
-          }
-        }
-
-        &__duration {
-          color: $color-accent;
-          font-size: .9rem;
-        }
-
-        &__description {
-          margin: $size / 2 0;
-
-          &__title {
-            font-size: .85rem;
-            color: $color-accent;
-          }
-
-          &__text {
-            margin: 0;
-            padding: 0 0 0 ($size / 5);
-          }
-        }
-
-        &__stack {
-          &__title {
-            font-size: .85rem;
-            color: $color-accent;
-          }
-
-          &__row {
-            padding: 0 0 0 ($size / 5);
-
-            &__item {
-              position: relative;
-              display: inline-block;
-              padding-right: $size / 2;
-              font-size: .9rem;
-
-              &:not(:last-of-type):after {
-                content: "•";
-                position: absolute;
-                right: calc(#{$size / 4} - #{.85rem / 4});
-                color: $color-accent
-              }
-            }
-          }
-        }
-      }
+    @media #{$media} {
+      font-size: 1.5rem;
     }
   }
 }

@@ -14,7 +14,7 @@ import Home from "./pages/Home/Home";
 import Resume from "./pages/Resume/Resume";
 import ContactMe from "./pages/ContactMe/ContactMe";
 
-import './App.scss';
+import "./App.scss";
 
 const App = () => (
   <div className="App">

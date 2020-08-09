@@ -9,7 +9,7 @@ import {getProfile} from "../../redux/actions/userActions";
 // Components
 import SvgIcon from "../../components/svg/SvgIcon"
 
-import './ContactMe.scss';
+import "./ContactMe.scss";
 
 class ContactMe extends React.Component {
   copyEmail() {

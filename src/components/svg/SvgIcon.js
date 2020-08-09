@@ -1,13 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // Icons
-import icons from './icons';
+import icons from "./_icons";
 
 class SvgIcon extends React.PureComponent {
   render() {
-    return icons[this.props.icon]({
-      fill: this.props.color
+    const icon = icons[this.props.icon];
+
+    return icon.f({
+      [icon.color]: this.props.color
     })
   }
 }

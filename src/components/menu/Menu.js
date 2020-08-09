@@ -12,9 +12,9 @@ import windowSize from "../../utils/windowSize";
 import {menuClose, menuOpen} from "../../redux/actions/uiActions";
 
 // Components
-import NavIcon from "./NavIcon";
+import NavIcon from "./_NavIcon";
 
-import './Menu.scss';
+import "./Menu.scss";
 
 const springsConfig = {
   menu: {mass: 15, tension: 475, friction: 150}

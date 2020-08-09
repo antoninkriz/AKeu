@@ -15,7 +15,7 @@ import {getProfile} from "../../redux/actions/userActions";
 // Components
 import HexagonImage from "../../components/hexagonImage/HexagonImage";
 
-import './Home.scss';
+import "./Home.scss";
 
 const getSwooshParams = () => {
   let width = (.5 + Math.random()) * 50;
