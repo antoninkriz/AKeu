@@ -1,4 +1,8 @@
+@import "~highlight.js/scss/obsidian";
+
 @import "variables";
+
+@import "markdown";
 
 * {
   box-sizing: border-box;
@@ -12,16 +16,6 @@
 
 a {
   text-decoration: none;
-  color: $color-blue;
-  transition: color .15s ease;
-
-  &:visited {
-    color: $color-blue;
-  }
-
-  &:hover {
-    color: $color-navy;
-  }
 }
 
 body {

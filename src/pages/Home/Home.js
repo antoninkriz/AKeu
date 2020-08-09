@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
 import {Parallax, ParallaxLayer} from "react-spring/renderprops-addons";
 import Typist from "react-typist";
 
@@ -17,6 +16,8 @@ import HexagonImage from "../../components/hexagonImage/HexagonImage";
 
 import "./Home.scss";
 import {Helmet} from "react-helmet";
+import ReactMarkdown from "react-markdown";
+import renderers from "../../components/markdown/renderer";
 
 const getSwooshParams = () => {
   let width = (.5 + Math.random()) * 50;
@@ -60,7 +61,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const {text, photo} = this.props.profile;
+    const {text, whoAmI, photo} = this.props.profile;
 
     const svg = [];
     for (let i = 0; i < 50; i++)
@@ -112,14 +113,7 @@ class Home extends React.Component {
                   </div>
                 </div>
                 <div className="home__section__content__body">
-                  <h1>Hi</h1> {/* TODO add to API */}
-                  <p>
-                    I'm Antonín Kříž, 21 y.o. web developer from Prague, Czech Republic and a student at FIT CTU.<br />
-                    I mainly focus on both front-end and back-end web development, but I have experience with and
-                    passion for mobile development too!
-                    I have over 3 years of professional experience and many more as a hobbyist.<br />
-                    If you want to talk feel free to contact me <Link to="/contact-me">here</Link>
-                  </p>
+                  <ReactMarkdown renderers={renderers} skipHtml={true} className="home__section__content__body__content" source={whoAmI}/>
                 </div>
               </div>
             </section>

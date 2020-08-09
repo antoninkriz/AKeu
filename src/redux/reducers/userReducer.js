@@ -3,6 +3,7 @@ import {USER_PROFILE} from "../types";
 const initialState = {
   profile: {
     text: '',
+    whoAmI: '',
     photo: '',
     email: '',
     linkedin: '',

@@ -16,8 +16,8 @@
     display: block;
     margin: 0;
     font-size: 1.25rem;
-    color: $color-accent !important; // TODO: remove !important after  markdown integration
     text-shadow: 0 0 5px rgba($color-text, .5);
+    color: $color-accent;
     transition: text-shadow .15s ease;
 
     @media #{$media} {
@@ -27,7 +27,7 @@
 
     &--link {
       &:hover {
-        color: $color-accent !important; // TODO: remove !important after  markdown integration
+        color: $color-accent;
         text-shadow: 0 0 3px $color-accent;
       }
     }
@@ -139,8 +139,10 @@
 
         &__stack {
           &__title {
+            display: block;
             font-size: .85rem;
             color: $color-accent;
+            margin-bottom: 1em;
           }
 
           &__row {
@@ -260,7 +262,6 @@
         margin: 0;
         padding: 0;
         font-size: 1.25rem;
-        color: $color-accent !important; // TODO: remove !important after  markdown integration
         text-shadow: 0 0 5px rgba($color-text, .5);
         transition: text-shadow .15s ease;
       }

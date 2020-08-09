@@ -8,6 +8,12 @@ class SvgIcon extends React.PureComponent {
   render() {
     const icon = icons[this.props.icon];
 
+    if (icon.color.constructor.name === 'Array') {
+      const res = {};
+      icon.color.forEach(k => res[k] = this.props.color);
+      return res;
+    }
+
     return icon.f({
       [icon.color]: this.props.color
     })

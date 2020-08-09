@@ -59,12 +59,12 @@
         font-family: 'Source Code Pro', monospace;
         font-weight: 600;
         font-size: 3rem;
-        color: $color-text !important; // TODO: remove !important after  markdown integration
+        color: $color-text;
         text-transform: uppercase;
         transition: color .15s ease;
 
         &:hover {
-          color: $color-dark !important; // TODO: remove !important after  markdown integration
+          color: $color-dark;
         }
       }
     }

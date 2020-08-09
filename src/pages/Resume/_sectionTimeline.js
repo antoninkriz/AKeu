@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./_sections.scss"
+import ReactMarkdown from "react-markdown";
+import renderers from "../../components/markdown/renderer";
 
 class SectionTimeline extends React.Component {
   render() {
@@ -22,7 +24,7 @@ class SectionTimeline extends React.Component {
                 </div>
                 <div className="section__timeline__event__content__description">
                   <span className="section__timeline__event__content__stack__title">Description</span>
-                  <p className="section__timeline__event__content__description__text">{e.description}</p>
+                  <ReactMarkdown renderers={renderers} skipHtml={true} className="section__timeline__event__content__description__text" source={e.description}/>
                 </div>
                 {e.stack &&
                 <div className="section__timeline__event__content__stack">

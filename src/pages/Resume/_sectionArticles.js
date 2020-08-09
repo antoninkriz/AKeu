@@ -2,13 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
-// Utils
-import classNames from "../../utils/classNames";
-
 // Components
 import SvgIcon from "../../components/svg/SvgIcon";
 
 import "./_sections.scss"
+import ReactMarkdown from "react-markdown";
+import renderers from "../../components/markdown/renderer";
 
 class SectionArticles extends React.Component {
   render() {
@@ -18,11 +17,12 @@ class SectionArticles extends React.Component {
         <div className="section__list">
           {this.props.articles.map((a, i) => (
             <article className="section__list__project" key={i}>
-              <img className="section__list__project__logo" src={a.logo} alt={a.title}/>
+              <img className="section__list__project__logo" src={a.logo} alt={a.title} />
               <div className="section__list__project__content">
                 {a.link ?
-                  (/https?:\/\//.test(a.link) ? (
-                      <a className="section__list__project__content__title section__list__project__content__title--link" href={a.link} target="_blank" rel="noopener noreferrer">
+                  (/^https?:\/\//i.test(a.link) ? (
+                      <a className="section__list__project__content__title section__list__project__content__title--link" href={a.link} target="_blank"
+                         rel="noopener noreferrer">
                         <h3 className="section__list__project__content__title__text">{a.title}</h3>
                       </a>
                     ) : (
@@ -36,16 +36,20 @@ class SectionArticles extends React.Component {
                     </div>
                   )
                 }
-                {a.date && <span className="section__list__project__content__date">{a.date}</span>}
-                {a.description && <p className="section__list__project__content__description">{a.description}</p>}
+                {a.date && (
+                  <span className="section__list__project__content__date">{a.date}</span>
+                )}
+                {a.description && (
+                  <ReactMarkdown renderers={renderers} skipHtml={true} className="section__list__project__content__description" source={a.description} />
+                )}
                 {a.link &&
-                (/https?:\/\//.test(a.link) ? (
+                (/^https?:\/\//i.test(a.link) ? (
                     <a className="section__list__project__content__link" href={a.link} target="_blank" rel="noopener noreferrer">
-                      {this.props.readMore} <SvgIcon icon="chevronRight"/>
+                      {this.props.readMore} <SvgIcon icon="chevronRight" />
                     </a>
                   ) : (
                     <Link className="section__list__project__content__link" to={a.link}>
-                      {this.props.readMore} <SvgIcon icon="chevronRight"/>
+                      {this.props.readMore} <SvgIcon icon="chevronRight" />
                     </Link>
                   )
                 )}

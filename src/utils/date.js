@@ -41,3 +41,18 @@ export const dateToHumanDuration = (d1, d2) => {
 
   return `${diff.years} ${yearsText} and ${diff.months} ${monthsText}`;
 }
+
+export const secondsToMinutesSeconds = (num) => {
+  let minutes = Math.floor(num / 60);
+  let seconds = Math.round(num % 60);
+
+  if (seconds >= 60) {
+    minutes++;
+    seconds = 0;
+  }
+
+  if (seconds < 10)
+    seconds = ("" + seconds).padStart(2, "0");
+
+  return minutes + ":" + seconds;
+};

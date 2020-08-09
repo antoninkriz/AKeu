@@ -34,26 +34,18 @@
   }
 
   &:before {
+    top: ($size / 2.5);
+    left: ($size / 2.5);
     mask-image: url('/svg/lined.svg');
     mask-size: ($size / 2.5) ($size / 2.5);
     background: $color-accent;
   }
 
   &:after {
+    top: ($size / 5);
+    left: ($size / 5);
     background-size: ($size / 2.5) ($size / 2.5);
     background: rgba($color-text, .5);
-  }
-
-  &:hover {
-    &:before {
-      top: ($size / 2.5);
-      left: ($size / 2.5);
-    }
-
-    &:after {
-      top: ($size / 5);
-      left: ($size / 5);
-    }
   }
 }
 
