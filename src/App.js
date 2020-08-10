@@ -14,6 +14,7 @@ import Home from "./pages/Home/Home";
 import Resume from "./pages/Resume/Resume";
 import ContactMe from "./pages/ContactMe/ContactMe";
 import Article from "./pages/Article/Article";
+import NotFound from "./pages/NotFound/NotFound";
 
 import "./App.scss";
 
@@ -45,7 +46,7 @@ const routes = [
     path: '/404',
     triangles: true,
     exact: true,
-    component: () => <span>404 - whoopsie oopsie something fucked up</span> // TODO
+    component: NotFound
   },
   {
     path: '*',

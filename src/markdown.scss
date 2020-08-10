@@ -20,9 +20,11 @@
     padding-inline-start: $size / 1.5;
   }
 
-  p > code {
+  :not(pre) > code {
     background: $color-silver;
     color: $color-text;
+    padding: 0 ($size / 6);
+    border-radius: $size / 10;
   }
 
   pre {

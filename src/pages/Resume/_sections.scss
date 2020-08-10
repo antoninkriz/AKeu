@@ -214,7 +214,7 @@
           display: flex;
           padding: ($size / 3) $size;
           float: right;
-          color: $color-accent !important; // TODO: remove !important after  markdown integration
+          color: $color-accent;
           border: solid 1px transparent;
           transition: border-color .15s ease;
 

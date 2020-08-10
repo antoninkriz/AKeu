@@ -31,10 +31,6 @@
       font-size: 2rem;
     }
 
-    &:hover {
-      color: $color-accent; // TODO: Remove after implementing markdown
-    }
-
     @include underline(big, accent);
   }
 
