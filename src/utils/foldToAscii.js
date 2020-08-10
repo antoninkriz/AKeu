@@ -1,3 +1,9 @@
+/**
+ * Replace localized characters with similarly looking ASCII alternatives
+ * @param {string} input String to be folded
+ * @param {number} length Maximum result string length
+ * @returns {string|null} Folded string
+ */
 export default (input, length = input.length) => {
   if (!input)
     return null;

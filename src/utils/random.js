@@ -10,8 +10,3 @@ export const randomGaussian = () => {
   if (num > 1 || num < 0) return randomGaussian(); // resample between 0 and 1
   return num;
 }
-
-export const randomInverseGaussian = () => {
-  let n = randomGaussian() - .5;
-  return n < 0 ? 1 - n : n;
-}

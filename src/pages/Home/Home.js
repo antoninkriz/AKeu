@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Parallax, ParallaxLayer} from "react-spring/renderprops-addons";
 import Typist from "react-typist";
+import {Helmet} from "react-helmet";
+import ReactMarkdown from "react-markdown";
 
 // Utils
 import windowUnit from "../../utils/windowUnit";
 import isMobile from "../../utils/isMobile";
+import renderers from "../../components/markdown/renderer";
 
 // Redux
 import {getProfile} from "../../redux/actions/userActions";
@@ -15,9 +18,6 @@ import {getProfile} from "../../redux/actions/userActions";
 import HexagonImage from "../../components/hexagonImage/HexagonImage";
 
 import "./Home.scss";
-import {Helmet} from "react-helmet";
-import ReactMarkdown from "react-markdown";
-import renderers from "../../components/markdown/renderer";
 
 const getSwooshParams = () => {
   let width = (.5 + Math.random()) * 50;

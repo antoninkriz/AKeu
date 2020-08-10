@@ -12,8 +12,12 @@
     }
 
     &:hover {
-      color: $color-navy;
+      color: $color-blue;
     }
+  }
+
+  ul {
+    padding-inline-start: $size / 1.5;
   }
 
   p > code {
@@ -23,9 +27,15 @@
 
   pre {
     position: relative;
-    margin: 20px 12px 30px auto;
+    margin: ($size / 1.5) ($size / 2) $size;
+    border-radius: $size / 10;
+    z-index: 1;
 
-    @include lined();
+    @include lined($color-primary);
+
+    code {
+      border-radius: $size / 10;
+    }
   }
 
   .media {
@@ -44,7 +54,7 @@
       width: fit-content;
       background: $color-text;
       margin-left: $size;
-      padding: ($size / 6) ($size / 2);
+      padding: ($size / 6) ($size / 2) ($size / 3);
       z-index: 2;
 
       &__title {
@@ -64,7 +74,7 @@
       position: relative;
       z-index: 1;
 
-      @include lined();
+      @include lined($color-primary);
 
       &__content {
         display: block;

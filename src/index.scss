@@ -11,7 +11,7 @@
 ::selection {
   color: $color-dark;
   background: $color-white;
-  text-shadow: 2px 2px $color-accent;
+  text-shadow: ($size / 15) ($size / 15) $color-accent;
 }
 
 a {
@@ -39,7 +39,7 @@ code {
   }
 
   & .peg {
-    box-shadow: 0 0 10px $color-accent, 0 0 5px $color-accent;
+    box-shadow: 0 0 ($size / 3) $color-accent, 0 0 ($size / 6) $color-accent;
   }
 
   & .spinner-icon {

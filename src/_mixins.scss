@@ -17,7 +17,7 @@
   }
 }
 
-@mixin lined() {
+@mixin lined($color) {
   &:before, &:after {
     content: "";
     position: absolute;
@@ -36,7 +36,7 @@
     left: ($size / 2.5);
     mask-image: url('/svg/lined.svg');
     mask-size: ($size / 2.5) ($size / 2.5);
-    background: $color-accent;
+    background: $color;
   }
 
   &:after {
@@ -47,13 +47,13 @@
   }
 }
 
-@mixin underline($size) {
+@mixin underline($lineSize, $color) {
   position: relative;
 
-  @if $size == big {
+  @if $lineSize == big {
     padding-bottom: $size;
-  } @else if $size == small {
-    padding-bottom: $size / 2;
+  } @else if $lineSize == small {
+    padding-bottom: $size / 4;
   }
 
   &:after {
@@ -63,17 +63,19 @@
     top: 0;
     left: 0;
     right: 0;
-    width: calc(100% - #{($size / 2)} * 2);
     height: 100%;
     margin: auto;
     opacity: 0;
     transition: opacity .15s ease;
 
-    @if $size == big {
-      background: url('/svg/underline.svg') 0 100%/auto 25px repeat-x;
-    } @else if $size == small {
-      background: url('/svg/underline.svg') 0 100%/auto 12px repeat-x;
+    $sizePx: 12px;
+    @if $lineSize == big {
+      $sizePx: 24px;
+    } @else if $lineSize == small {
+      $sizePx: 12px;
     }
+
+    background: url('/svg/underline-#{$color}.svg') 0 100%/auto $sizePx repeat-x;
   }
 
   &:hover:after {

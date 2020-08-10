@@ -1,0 +1,79 @@
+@import "../../variables";
+@import "../../mixins";
+
+.article {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &__title {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: $color-dark;
+    box-shadow: 0 0 5px rgba($color-text, .5);
+    z-index: -1;
+
+    &__text {
+      max-width: $size * 28;
+      padding: $size / 2;
+      margin: 0;
+      font-weight: 600;
+      font-size: 2rem;
+      color: $color-accent;
+      letter-spacing: $size / 10;
+
+      @media #{$media} {
+        font-size: 3.5rem;
+        padding: $size;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    max-width: $size * 32;
+    margin: 100vh auto 0;
+    padding: ($size / 4) ($size / 4) ($size * 2);
+    border-radius: $size / 10;
+    background: $color-background;
+    box-shadow: 0 0 5px rgba($color-text, .5);
+    bottom: $size * 1.5;
+
+    @include lined($color-accent);
+
+    @media #{$media} {
+      padding: $size * 2;
+      margin: 100vh auto ($size * 2);
+    }
+
+    &__date {
+      display: block;
+      margin: 0 0 ($size * 3);
+      font-weight: 300;
+      font-size: .9rem;
+      color: $color-dark;
+    }
+
+    &__content {
+      text-align: left;
+      font-weight: 300;
+      letter-spacing: 1px;
+      line-height: 1.5rem;
+      color: $color-text;
+
+      img[alt="logo"] {
+        width: $size * 5;
+        height: $size * 5;
+      }
+
+      a {
+        @include underline(small, primary);
+      }
+    }
+  }
+}

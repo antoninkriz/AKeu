@@ -13,8 +13,45 @@ import Triangles from "./components/triangles/Triangles";
 import Home from "./pages/Home/Home";
 import Resume from "./pages/Resume/Resume";
 import ContactMe from "./pages/ContactMe/ContactMe";
+import Article from "./pages/Article/Article";
 
 import "./App.scss";
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    triangles: true,
+    component: Home
+  },
+  {
+    path: '/cv',
+    exact: true,
+    triangles: false,
+    component: Resume
+  },
+  {
+    path: '/contact-me',
+    exact: true,
+    triangles: false,
+    component: ContactMe
+  },
+  {
+    path: '/post/:id',
+    triangles: false,
+    component: Article
+  },
+  {
+    path: '/404',
+    triangles: true,
+    exact: true,
+    component: () => <span>404 - whoopsie oopsie something fucked up</span> // TODO
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  }
+]
 
 const App = () => (
   <div className="App">
@@ -22,16 +59,15 @@ const App = () => (
       <Router>
         <Menu/>
         <Switch>
-          <Route path="/" exact={true}>
-            <Triangles/>
-            <Home />
-          </Route>
-          <Route path="/cv" exact={true}>
-            <Resume/>
-          </Route>
-          <Route path="/contact-me" exact={true}>
-            <ContactMe/>
-          </Route>
+          {routes.map((r, i) => (
+            <Route path={r.path} exact={r.exact} key={i} render={p =>
+              <>
+                {r.triangles && <Triangles/>}
+                <r.component {...p}/>
+              </>
+            }>
+            </Route>
+          ))}
         </Switch>
       </Router>
     </Provider>

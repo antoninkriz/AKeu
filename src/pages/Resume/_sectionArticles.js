@@ -26,7 +26,7 @@ class SectionArticles extends React.Component {
                         <h3 className="section__list__project__content__title__text">{a.title}</h3>
                       </a>
                     ) : (
-                      <Link className="section__list__project__content__title section__list__project__content__title--link" to={a.link}>
+                      <Link className="section__list__project__content__title section__list__project__content__title--link" to={`/post/${a.link}`}>
                         <h3 className="section__list__project__content__title__text">{a.title}</h3>
                       </Link>
                     )
@@ -48,7 +48,7 @@ class SectionArticles extends React.Component {
                       {this.props.readMore} <SvgIcon icon="chevronRight" />
                     </a>
                   ) : (
-                    <Link className="section__list__project__content__link" to={a.link}>
+                    <Link className="section__list__project__content__link" to={`/post/${a.link}`}>
                       {this.props.readMore} <SvgIcon icon="chevronRight" />
                     </Link>
                   )

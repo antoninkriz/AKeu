@@ -7,4 +7,7 @@ const instance = axios.create({
 
 loadProgressBar({showSpinner: false}, instance);
 
+/**
+ * Axios instance
+ */
 export default instance;

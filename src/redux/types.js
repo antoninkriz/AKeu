@@ -9,3 +9,5 @@ export const USER_PROFILE = 'USER_PROFILE';
 
 // Data types
 export const DATA_RESUME = 'DATA_RESUME';
+export const DATA_POST = 'DATA_POST';
+export const DATA_404 = 'DATA_404';
