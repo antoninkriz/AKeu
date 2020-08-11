@@ -17,7 +17,7 @@ class SectionArticles extends React.Component {
         <div className="section__list">
           {this.props.articles.map((a, i) => (
             <article className="section__list__project" key={i}>
-              <img className="section__list__project__logo" src={a.logo} alt={a.title} />
+              <img className="section__list__project__logo" src={a.logo} alt={a.title} loading="lazy"/>
               <div className="section__list__project__content">
                 {a.link ?
                   (/^https?:\/\//i.test(a.link) ? (

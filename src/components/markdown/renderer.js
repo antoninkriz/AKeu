@@ -44,7 +44,7 @@ const imageRenderer = (props) => {
           </figcaption>
         }
         <div className="media__wrapper">
-          <img className="media__wrapper__content" src={props.src} alt={props.alt} />
+          <img className="media__wrapper__content" src={props.src} alt={props.alt} loading="lazy"/>
         </div>
       </figure>
     );

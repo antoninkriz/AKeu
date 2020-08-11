@@ -13,7 +13,7 @@ class SectionTimeline extends React.Component {
         <div className="section__timeline">
           {this.props.events.map((e, i) => (
             <article className="section__timeline__event" key={i}>
-              <img className="section__timeline__event__logo" src={e.logo} alt={e.name} />
+              <img className="section__timeline__event__logo" src={e.logo} alt={e.name} loading="lazy"/>
               <div className="section__timeline__event__content">
                 <a className="section__timeline__event__content__title section__timeline__event__content__title--link"
                    href={e.link} target="_blank" rel="noopener noreferrer">
