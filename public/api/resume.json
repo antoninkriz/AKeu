@@ -1,14 +1,14 @@
 {
   "experience": [
     {
-      "position": "Web Developer",
+      "position": "Front End / Full Stack Web Developer",
       "name": "Alza.cz",
-      "logo": "https://www.antoninkriz.eu/assets/images/logo/alza.png",
+      "logo": "/images/resume/alza.png",
       "link": "https://www.alza.cz",
       "from": "2017-07",
       "to": null,
       "place": "Prague",
-      "text": "This is some short description lorem ipsum dolor sit amet",
+      "text": "Development and maintenance of the biggest Czech e-commerce eshop. I work on mostly on front end (React, C# ASP, JS, …) but also with back end components of the web site (C#, SQL/T-SQL, …).",
       "stack": [
         ["C#", "ASP.Net", ".Net Core"],
         ["React", "JavaScript", "TypeScript", "jQuery"],
@@ -19,62 +19,94 @@
       ]
     },
     {
-      "position": "Web Developer",
-      "name": "Alza.cz",
-      "logo": "https://www.antoninkriz.eu/assets/images/logo/alza.png",
-      "link": "https://www.alza.cz",
-      "from": "2017-07",
-      "to": null,
+      "position": "Freelance Web Developer",
+      "name": "designcrew.cz",
+      "logo": "/images/resume/designcrew.png",
+      "link": "https://designcrew.cz",
+      "from": "2018-05",
+      "to": "2019-01",
       "place": "Prague",
-      "text": "This is some short description lorem ipsum dolor sit amet",
+      "text": "Web Management, Web and Server Security, Websites Editing, Refactoring and Optimization, SEO Optimization, Building WordPress websites from scratch",
       "stack": [
-        ["C#", "ASP.Net", ".Net Core"],
-        ["React", "JavaScript", "TypeScript", "jQuery"],
-        ["SCSS / SASS", "LESS", "HTML5"],
+        ["PHP", "Nette", "WordPress"],
+        ["Angular", "JavaScript", "TypeScript", "jQuery"],
+        ["SCSS / SASS", "LESS", "CSS", " HTML5"],
+        ["SQL", "MySQL", "MariaDB"],
+        ["Apache", "Nginx"],
+        ["JetBrains WebStorm", "JetBrains PhpStorm", "JetBrains DataGrip", "phpMyAdmin"]
+      ]
+    },
+    {
+      "position": "Web Development Intern",
+      "name": "Alza.cz",
+      "logo": "/images/resume/alza.png",
+      "link": "https://www.alza.cz",
+      "from": "2017-05",
+      "to": "2017-06",
+      "place": "Prague",
+      "text": "When working as an intern I've had the opportuinity to work with (and later even join) the Web Development team when I automatized some of my \"intern tasks\"",
+      "stack": [
+        ["C#", "ASP.Net", ".Net"],
+        ["JavaScript", "jQuery"],
+        ["LESS", "CSS", "HTML5"],
         ["SQL", "T-SQL"],
-        ["JetBrains WebStorm", "Microsoft Visual Studio", "SQL Server Management Studio", "Storybook"],
-        ["Jira", "MS Teams"]
+        ["Microsoft Visual Studio", "SQL Server Management Studio"]
       ]
     }
   ],
   "education": [
     {
       "name": "FIT CTU",
-      "logo": "https://www.antoninkriz.eu/assets/images/logo/cvut.png",
+      "logo": "/images/resume/cvut.png",
       "link": "https://fit.cvut.cz",
       "from": "2019",
-      "to": "2020",
+      "to": "2022",
       "place": "Prague",
-      "text": "» 3rd semester // TODO\n\n✓ 2nd semester\n• C++ - programming and OOP, 2nd place out of 654 students\n• C# - .Net Framework, ASP.Net, WPF\n• Python - numpy, Pandas\n• Databases - Oracle SQL, database design\n• Linear Algebra\n• Assembler/ Computer structures and architectures\n\n✓ 1st semester\n• C - programming and algorithms, 26th place out of 834 students\n• Bash Shell scripting and programming\n• Linux basics\n• Electronics - Digital and Analog Circuits\n• Elements of Calculus\n• Mathematical logic"
+      "text": "**» 3rd semester** // TODO :)\n\n**✓ 2nd semester**  \n• C++ - programming and OOP, 2nd place out of 654 students  \n• C# - .Net Framework, ASP.Net, WPF  \n• Python - from basics to numpy and Pandas  \n• Databases - Oracle SQL, database design  \n• Linear Algebra  \n• Assembler/ Computer structures and architectures\n\n**✓ 1st semester**  \n• C - programming and algorithms, 26th place out of 834 students  \n• Bash Shell scripting and programming  \n• Linux basics  \n• Electronics - Digital and Analog Circuits  \n• Elements of Calculus  \n• Mathematical logic  "
     },
     {
-      "name": "FIT CTU",
-      "logo": "https://www.antoninkriz.eu/assets/images/logo/cvut.png",
-      "link": "https://fit.cvut.cz",
-      "from": "2019",
-      "to": "2020",
+      "name": "SPŠE Františka Křižíka",
+      "logo": "/images/resume/skolakrizik.png",
+      "link": "https://www.skolakrizik.cz",
+      "from": "2015",
+      "to": "2019",
       "place": "Prague",
-      "text": "» 3rd semester // TODO\n\n✓ 2nd semester\n• C++ - programming and OOP, 2nd place out of 654 students\n• C# - .Net Framework, ASP.Net, WPF\n• Python - numpy, Pandas\n• Databases - Oracle SQL, database design\n• Linear Algebra\n• Assembler/ Computer structures and architectures\n\n✓ 1st semester\n• C - programming and algorithms, 26th place out of 834 students\n• Bash Shell scripting and programming\n• Linux basics\n• Electronics - Digital and Analog Circuits\n• Elements of Calculus\n• Mathematical logic"
+      "text": "Graduated with honors\n\n• C#, C++, PHP  \n• JavaScript, CSS  \n• SQL and Databases design  \n• Basics of networking  \n• Linux and Windows systems administration  \n• Microsoft Office  \n• Electronics and electrotechnics  \n• Raster and vector graphics"
+    },
+    {
+      "name": "Arcibiskupské gymnázium v Praze",
+      "logo": "/images/resume/arcig.png",
+      "link": "https://www.arcig.cz",
+      "from": "2015",
+      "to": "2011",
+      "place": "Prague",
+      "text": ""
     }
   ],
   "projects": [
     {
       "title": "PedF CUNI - User-friendly Recognition of Completion of Courses",
-      "logo": "https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png",
-      "link": "karolinka",
-      "description": "High-school seminary work written as microservices in NetCore, Angular and deployed using Docker"
+      "logo": "/images/posts/pedf-cuni-user-friendly-recognition-of-completion-of-courses/logo.png",
+      "link": "pedf-cuni-user-friendly-recognition-of-completion-of-courses",
+      "description": "Seminary work written as microservices in NetCore, Angular and deployed using Docker"
     },
     {
-      "title": "PedF CUNI - User-friendly Recognition of Completion of Courses",
-      "logo": "https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png",
-      "link": "karolinka",
-      "description": "High-school seminary work written as microservices in NetCore, Angular and deployed using Docker"
+      "title": "Křižíci - Unofficial app for skolakrizik.cz",
+      "logo": "/images/posts/krizici-unofficial-app-for-skolakrizik-cz/logo.png",
+      "link": "krizici-unofficial-app-for-skolakrizik-cz",
+      "description": "New Křižíci app - fresh, cool and rewritten in Kotlin and NetCore as microservices"
     },
     {
-      "title": "PedF CUNI - User-friendly Recognition of Completion of Courses",
-      "logo": "https://www.antoninkriz.eu/assets/images/content/karolinka/logo.png",
-      "link": "karolinka",
-      "description": "High-school seminary work written as microservices in NetCore, Angular and deployed using Docker"
+      "title": "Let's Loud",
+      "logo": "/images/posts/letsloud/logo.png",
+      "link": "letsloud",
+      "description": "A website for a business with focus on event organization and audio/video productionr"
+    },
+    {
+      "title": "Křižíci - Unofficial app for vosaspsekrizik.cz",
+      "logo": "/images/posts/krizici-unofficial-app-for-vosaspsekrizik-cz/logo.png",
+      "link": "krizici-unofficial-app-for-vosaspsekrizik-cz",
+      "description": "The first Křižíci Android application"
     }
   ],
   "certifications": [
@@ -82,28 +114,59 @@
       "title": "Front End Libraries",
       "from": "freeCodeCamp",
       "when": "2020-07",
-      "logo": "https://media-exp1.licdn.com/dms/image/C560BAQHli6etYJTCrA/company-logo_100_100/0?e=1605139200&v=beta&t=cx38WLKM_B4H2QVhXT99dO3Txt88cJzxnIbCK88dS-Y",
-      "link": "karolinka"
+      "logo": "/images/resume/freecodecamp.png",
+      "link": "https://www.freecodecamp.org/certification/antoninkriz/front-end-libraries"
     },
     {
-      "title": "Front End Libraries",
-      "from": "freeCodeCamp",
+      "title": "Problem Solving (Basic) Certificate",
+      "from": "HackerRank",
       "when": "2020-07",
-      "logo": "https://media-exp1.licdn.com/dms/image/C560BAQHli6etYJTCrA/company-logo_100_100/0?e=1605139200&v=beta&t=cx38WLKM_B4H2QVhXT99dO3Txt88cJzxnIbCK88dS-Y",
-      "link": "karolinka"
+      "logo": "/images/resume/hackerrank.png",
+      "link": "https://www.hackerrank.com/certificates/97e0f48b07d7"
+    },
+    {
+      "title": "JavaScript (Basic) Certificate",
+      "from": "HackerRank",
+      "when": "2020-07",
+      "logo": "/images/resume/hackerrank.png",
+      "link": "https://www.hackerrank.com/certificates/3d22efee858c"
+    },
+    {
+      "title": "Python (Basic) Certificate",
+      "from": "HackerRank",
+      "when": "2020-07",
+      "logo": "/images/resume/hackerrank.png",
+      "link": "https://www.hackerrank.com/certificates/2876d6d2977b"
+    },
+    {
+      "title": "Java (Basic) Certificate",
+      "from": "HackerRank",
+      "when": "2020-07",
+      "logo": "/images/resume/hackerrank.png",
+      "link": "https://www.hackerrank.com/certificates/a5933203987f"
     }
   ],
   "accomplishments": [
     {
       "title": "#hack19 - Flutter Hackathon Prague - 2nd place",
-      "logo": "https://www.antoninkriz.eu/assets/images/logo/flutterhack19.png",
-      "description": "#hack19 Prague was a Flutter hackathon organized by Inventi <Labs/>. Vitaliy Misurenko and I had a few hours to pitch some flutter-community related idea, build an app and present it. To that point, both Vitaliy and I haven't really worked with Flutter before, so learning on the go with a short deadline was a really interesting experience."
+      "logo": "/images/resume/flutterhack19.png",
+      "description": "#hack19 Prague was a Flutter hackathon organized by [Inventi <Labs/>](http://ilabs.cz/). [Vitaliy Misurenko](https://www.linkedin.com/in/vitaliymisurenko) and I had a few hours to pitch some flutter-community related idea, build an app and present it. To that point, both Vitaliy and I have never worked with Flutter before so learning on the go with the time running out was a really interesting experience. [The website](https://www.hack19prague.com/) of this event is down, but the event itself can be found [here](https://www.meetup.com/en-AU/Dart-Flutter-in-Prague/events/261347593/) and some press coverage [here](https://tyinternety.cz/kalendar-akci/hack19-international-flutter-hackathon-prague/) or [here](https://dotekomanie.cz/2019/05/hack19-international-hackathon-prague/)."
+    },
+    {
+      "title": "STV Programming competition - 2nd place",
+      "logo": "/images/resume/stv.png",
+      "description": "Second place in district programming competition in Prague 2. 6th place from whole Prague. More details are [here](http://www.ddm-ph2.cz/souteze-soutez-v-programovani)."
     }
   ],
   "stack": [
-    ["React", "C#", "React", "C#"],
-    ["React", "C#"],
-    ["React", "C#", "React", "C#", "React", "C#", "React", "C#", "React", "C#", "React", "C#"]
+    ["C#", "ASP.Net", ".Net Core"],
+    ["Java", "Kotlin"],
+    ["Python", "C", "C++", "AVR Assembler"],
+    ["PHP", "Nette", "WordPress"],
+    ["React", "Angular", "JavaScript", "TypeScript", "jQuery"],
+    ["SCSS / SASS", "LESS", "CSS", "HTML5"],
+    ["SQL", "T-SQL", "MySQL", "MariaDB", "Oracle SQL"],
+    ["Linux", "Bash", "Apache", "Nginx"]
   ],
   "languages": [
     {
