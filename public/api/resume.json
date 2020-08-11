@@ -85,6 +85,12 @@
   ],
   "projects": [
     {
+      "title": "Cetip Network",
+      "logo": "/images/posts/cetip/logo.png",
+      "link": "cetip",
+      "description": "A website for a CETIP - a collaborative social sciences research network"
+    },
+    {
       "title": "CTU-TimeTableGenerator",
       "logo": "/images/posts/ctu-timetable-generator/logo.png",
       "link": "ctu-timetable-generator",
