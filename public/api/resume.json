@@ -85,6 +85,12 @@
   ],
   "projects": [
     {
+      "title": "CTU-TimeTableGenerator",
+      "logo": "/images/posts/ctu-timetable-generator/logo.png",
+      "link": "ctu-timetable-generator",
+      "description": "Small CLI tool written in C++ to generate the best possible time table"
+    },
+    {
       "title": "PedF CUNI - User-friendly Recognition of Completion of Courses",
       "logo": "/images/posts/pedf-cuni-user-friendly-recognition-of-completion-of-courses/logo.png",
       "link": "pedf-cuni-user-friendly-recognition-of-completion-of-courses",
