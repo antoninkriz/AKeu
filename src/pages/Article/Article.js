@@ -15,27 +15,31 @@ import {dateToYearMonths} from "../../utils/date";
 import {Helmet} from "react-helmet";
 
 class Article extends React.Component {
-  constructor(props) {
-    super(props);
-
-    console.log(props);
-  }
-
   componentDidMount() {
     const {id} = this.props.match.params;
-    this.props.getPost(id);
+
+    // Update only when required
+    if (typeof this.props.posts[id] === "undefined" || Object.keys(this.props.posts[id]).filter(k => this.props.posts[id][k].length > 0).length === 0)
+      this.props.getPost(id);
   }
 
   render() {
     const {id} = this.props.match.params;
+    let post = this.props.posts[id];
 
-    if (!this.props.posts[id])
-      return (<span>Loading...</span>);
-
-    if (this.props.posts[id] === 404)
+    if (post === 404)
       return (<Redirect to="/404"/>);
 
-    const post = this.props.posts[id];
+
+    if (!post) {
+      post = {
+        title: "Loading...",
+        description: "The post is loading...",
+        createdAt: new Date(Date.now()),
+        content: ""
+      }
+    }
+
     return (
       <article className="article">
         <Helmet>

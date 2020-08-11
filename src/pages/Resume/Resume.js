@@ -17,7 +17,9 @@ import {Helmet} from "react-helmet";
 
 class Resume extends React.Component {
   componentDidMount() {
-    this.props.getResume();
+    // Update only when required
+    if (Object.keys(this.props.resume).filter(k => this.props.resume[k].length > 0).length === 0)
+      this.props.getResume();
   }
 
   render() {

@@ -57,7 +57,9 @@ class Home extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
 
-    this.props.getProfile();
+    // Update only when required
+    if (Object.keys(this.props.profile).filter(k => this.props.profile[k].length > 0).length === 0)
+      this.props.getProfile();
   }
 
   render() {
