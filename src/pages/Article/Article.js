@@ -12,6 +12,7 @@ import {getPost} from "../../redux/actions/dataActions";
 
 import "./Article.scss"
 import {dateToYearMonths} from "../../utils/date";
+import {Helmet} from "react-helmet";
 
 class Article extends React.Component {
   constructor(props) {
@@ -37,6 +38,10 @@ class Article extends React.Component {
     const post = this.props.posts[id];
     return (
       <article className="article">
+        <Helmet>
+          <title>{post.title} | Antonín Kříž</title>
+          <meta name="description" content={`${post.description} - Antonín Kříž - web and mobile developer and a student.`} />
+        </Helmet>
         <div className="article__title">
           <h1 className="article__title__text">{post.title}</h1>
         </div>
@@ -58,6 +63,7 @@ Article.propTypes = {
       PropTypes.shape({
         createdAt: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired
       }),
       PropTypes.number

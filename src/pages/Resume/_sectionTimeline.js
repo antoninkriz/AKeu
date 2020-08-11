@@ -22,10 +22,12 @@ class SectionTimeline extends React.Component {
                 <div className="section__timeline__event__content__duration">
                   {e.duration}
                 </div>
+                {e.description &&
                 <div className="section__timeline__event__content__description">
                   <span className="section__timeline__event__content__stack__title">Description</span>
                   <ReactMarkdown renderers={renderers} skipHtml={true} className="section__timeline__event__content__description__text" source={e.description}/>
                 </div>
+                }
                 {e.stack &&
                 <div className="section__timeline__event__content__stack">
                   <span className="section__timeline__event__content__stack__title">Stack</span>
@@ -56,7 +58,7 @@ SectionTimeline.propTypes = {
       name: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
       duration: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.string,
       stack: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string.isRequired)),
     })
   ).isRequired

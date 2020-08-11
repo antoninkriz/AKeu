@@ -11,6 +11,6 @@ export const toUrlFriendly = (str, maxLength = str.length) => {
     return null;
 
   const fold = foldToAscii(str, maxLength);
-  const replaceWhitespace = fold.replace(/[\s-]+/g, '-');
+  const replaceWhitespace = fold.replace(/[^a-zA-Z0-9]+/g, '-');
   return replaceWhitespace.toLowerCase();
 }

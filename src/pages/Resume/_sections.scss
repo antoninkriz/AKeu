@@ -72,6 +72,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
       padding: $size ($size / 2);
       text-align: left;
       font-weight: 300;
@@ -245,13 +246,19 @@
         padding-right: $size / 2;
         font-weight: 300;
         line-height: $size;
+        letter-spacing: $size / 15;
         color: $color-background;
+        transition: transform .15s ease;
 
         &:not(:last-of-type):after {
           content: "•";
           position: absolute;
           right: calc(#{$size / 4} - #{.85rem / 4});
           color: $color-accent
+        }
+
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }

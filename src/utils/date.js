@@ -14,6 +14,12 @@ const getDate = (d) => {
     case "Date":
       return d;
     case "String" :
+      const n = d.split('-');
+      return new Date(
+        n.length !== 1 ? n[0] : n,
+        n.length > 1 ? n[1] : 1,
+        n.length > 2 ? n[2] : 1
+      );
     case "Number":
       return new Date(d);
     default:
@@ -26,7 +32,7 @@ const getDate = (d) => {
  * @param date Date to be formatted
  * @return {string} Date in the YYYY/MM format
  */
-export const dateToYearMonths = (date) => `${getDate(date).getFullYear()}/${getDate(date).getMonth()}`;
+export const dateToYearMonths = (date) => `${getDate(date).getFullYear()}/${getDate(date).getMonth().toString().padStart(2, '0')}`;
 
 /**
  * Format a date in the YYYY format
@@ -43,27 +49,29 @@ export const dateToYear = (date) => `${getDate(date).getFullYear()}`;
  */
 export const dateToHumanDuration = (d1, d2) => {
   d1 = getDate(d1);
-  d2 = d2 ? getDate(d2) : null;
+  d2 = d2 ? getDate(d2) : new Date(Date.now());
 
   const MS_PER_DAY = 1000 * 60 * 60 * 24;
-  const AVG_DAYS_PER_MONTH = 7 * 31 + 5 * 30 + 28.25;
+  const AVG_DAYS_PER_MONTH = (7 * 31 + 4 * 30 + 28.25) / 12;
 
   const diffMilliseconds = Math.abs(d1 - d2);
   const diffDays = diffMilliseconds / MS_PER_DAY;
-  const diffMonths = diffDays / AVG_DAYS_PER_MONTH;
+  const diffMonths = (diffDays / AVG_DAYS_PER_MONTH) + 1;
 
   const diff = {
     years: Math.floor(diffMonths / 12),
-    months: Math.floor(diffMonths % 12),
+    months: Math.round(diffMonths % 12),
   };
 
   const yearsText = diff.years > 1 ? 'years' : 'year';
-  const monthsText = diff.years > 1 ? 'months' : 'month';
+  const monthsText = diff.months > 1 ? 'months' : 'month';
 
   if (!diff.months)
     return `${diff.years} ${yearsText}`;
+  if (!diff.years)
+    return `${diff.months} ${monthsText}`;
   return `${diff.years} ${yearsText} and ${diff.months} ${monthsText}`;
-}
+};
 
 /**
  * Converts seconds to the mm:ss format
