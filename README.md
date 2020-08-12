@@ -1,3 +1,3 @@
 # AKeu
 
-Possibly a new personal page
+My personal page written in React
