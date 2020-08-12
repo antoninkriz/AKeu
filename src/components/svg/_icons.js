@@ -99,7 +99,16 @@ export default {
     f: p => (
       <svg {...p.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <rect {...p.path} width="416" height="320" x="48" y="96" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" rx="40" ry="40"/>
-        <path {...p.path} fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M112 160l144 112 144-112"/>
+        <path {...p.path} fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M112 160l144 112 144-112"/>
+      </svg>
+    ),
+    color: ['stroke']
+  },
+  download: {
+    f: p => (
+      <svg {...p.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path {...p.path} fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32"
+              d="M160 368L32 256l128-112M352 368l128-112-128-112M192 288l64 64 64-64M256 160v176"/>
       </svg>
     ),
     color: ['stroke']

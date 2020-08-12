@@ -1,0 +1,285 @@
+@import "../../variables";
+@import "../../mixins";
+
+$size: 20px;
+
+@mixin title($parent) {
+  #{$parent}__title {
+    display: block;
+    margin: 0;
+    font-size: 1em;
+    text-shadow: 0 0 5px rgba($color-text, .5);
+    color: $color-accent;
+    transition: text-shadow .15s ease;
+    padding: $size 0 0;
+    line-height: $size;
+
+    &--link {
+      &:hover {
+        color: $color-accent;
+        text-shadow: 0 0 3px $color-accent;
+      }
+    }
+
+    &__text {
+      margin: 0
+    }
+  }
+}
+
+@mixin contentWithTitle($parent) {
+  width: 100%;
+  color: $color-background;
+  letter-spacing: $size / 30;
+  padding: 0 $size;
+  margin: 0;
+
+  @include title($parent);
+}
+
+.section {
+  width: 100%;
+  padding: $size 0 0;
+
+  &__title {
+    font-weight: 300;
+    font-size: 2em;
+    letter-spacing: $size;
+    color: $color-accent;
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: $size * 30;
+    margin: auto;
+
+    &__event {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      padding: $size ($size / 2);
+      text-align: left;
+      font-weight: 300;
+
+
+      &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: $size / 10;
+        left: -$size;
+        bottom: -2 * $size;
+        background: $color-accent;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: $size;
+        width: $size;
+        left: -($size + ($size / 2) - ($size / 20));
+        top: $size * 2;
+        border-radius: $size;
+        background: $color-accent;
+        box-shadow: 0 0 5px rgba($color-text, .5);
+        z-index: 1;
+      }
+
+      &:last-of-type {
+        &:before {
+          height: $size * 4;
+          bottom: unset;
+          border-radius: 0 0 ($size / 10) ($size / 10);
+        }
+      }
+
+      &__logo {
+        width: $size * 3;
+        height: $size * 3;
+        background: $color-background;
+        border-radius: $size / 10;
+      }
+
+      &__content {
+        @include contentWithTitle(&);
+
+        &__duration {
+          color: $color-accent;
+          font-size: .9em;
+        }
+
+        &__description {
+          margin: ($size / 2) 0;
+
+          &__title {
+            font-size: .85em;
+            color: $color-accent;
+          }
+
+          &__text {
+            padding: 0 0 0 ($size / 5);
+            margin: 0;
+
+            strong {
+              font-weight: 400;
+            }
+          }
+        }
+
+        &__stack {
+          &__title {
+            display: block;
+            font-size: .85em;
+            color: $color-accent;
+            margin-bottom: 1em;
+          }
+
+          &__row {
+            padding: 0 0 0 ($size / 5);
+
+            &__item {
+              position: relative;
+              display: inline-block;
+              padding-right: $size / 2;
+              font-size: .9em;
+
+              &:not(:last-of-type):after {
+                content: "•";
+                position: absolute;
+                right: calc(#{$size / 4} - #{.85em / 4});
+                color: $color-accent
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    max-width: $size * 30;
+    margin: auto;
+
+    &__project {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: ($size / 3) ($size / 2);
+      text-align: left;
+
+      &__logo {
+        width: $size * 3;
+        height: $size * 3;
+        background: $color-background;
+        border-radius: $size / 10;
+      }
+
+      &__content {
+        @include contentWithTitle(&);
+
+        &__title {
+          font-size: 0.8em !important;
+        }
+
+        &--center &__title {
+          padding: ($size / 2) 0 0;
+        }
+
+        &__date {
+          padding: 0 0 0 ($size / 5);
+          font-size: .85em;
+          font-weight: 300;
+        }
+
+        &__description {
+          padding: 0 0 0 ($size / 5);
+          font-weight: 300;
+
+          p {
+            margin-bottom: 0;
+          }
+
+          strong {
+            font-weight: 400;
+          }
+        }
+
+        &__link {
+          display: flex;
+          padding: ($size / 3) $size;
+          float: right;
+          color: $color-accent;
+          border: solid 1px transparent;
+          transition: border-color .15s ease;
+
+          &:hover {
+            border-color: $color-accent;
+          }
+
+          svg {
+            width: 1em;
+            margin-left: $size;
+            stroke: $color-accent;
+          }
+        }
+      }
+    }
+  }
+
+  &__items {
+    max-width: $size * 20;
+    margin: auto;
+    text-align: left;
+
+    &__row {
+      padding: 0 0 0 ($size / 5);
+
+      &__token {
+        position: relative;
+        display: inline-block;
+        padding-right: $size / 2;
+        font-weight: 300;
+        font-size: .8em;
+        line-height: $size;
+        letter-spacing: $size / 15;
+        color: $color-background;
+        transition: transform .15s ease;
+
+        &:not(:last-of-type):after {
+          content: "•";
+          position: absolute;
+          right: calc(#{$size / 4} - #{.85em / 4});
+          color: $color-accent
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__item {
+      position: relative;
+      padding: ($size / 2) ($size / 2) 0;
+      text-align: left;
+
+      @include title(&);
+
+      &__text {
+        padding: 0 0 0 ($size / 5);
+        margin: $size / 2 0;
+        font-weight: 300;
+        font-size: .9em;
+        color: $color-background;
+      }
+    }
+  }
+}

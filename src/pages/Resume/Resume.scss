@@ -22,4 +22,41 @@
       font-size: 1.5rem;
     }
   }
+
+  &__download {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: $size 0;
+    font-size: .8rem;
+    color: $color-accent;
+    transition: transform .15s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    svg {
+      height: $size * .8;
+      width: $size * .8;
+      margin: 0 ($size / 2);
+
+      &.stroke {
+        stroke: $color-accent;
+
+        path {
+          stroke: $color-accent;
+        }
+      }
+
+      &.fill {
+        fill: $color-accent;
+
+        path {
+          fill: $color-accent;
+        }
+      }
+    }
+  }
 }

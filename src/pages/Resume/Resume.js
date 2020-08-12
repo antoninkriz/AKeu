@@ -14,6 +14,7 @@ import SectionArticles from "./_sectionArticles";
 import SectionItems from "./_sectionItems";
 
 import "./Resume.scss";
+import SvgIcon from "../../components/svg/SvgIcon";
 
 class Resume extends React.Component {
   componentDidMount() {
@@ -54,11 +55,14 @@ class Resume extends React.Component {
 
     return (
       <div className="resume">
-        <h1 className="resume__title">CV</h1>
         <Helmet>
           <title>Resume | Antonín Kříž</title>
           <meta name="description" content="Resume of Antonín Kříž - web and mobile developer and a student. Work experience, education, projects, certifications, awards and more." />
         </Helmet>
+        <h1 className="resume__title">CV</h1>
+        <a className="resume__download" href="/Antonin-Kriz-resume.pdf" target="_blank" rel="noopener noreferrer">
+          <SvgIcon icon="download"/> PDF
+        </a>
         <SectionTimeline title="EXPERIENCE" events={experience}/>
         <SectionTimeline title="EDUCATION" events={education}/>
         <SectionArticles title="PROJECTS" articles={resume.projects}/>

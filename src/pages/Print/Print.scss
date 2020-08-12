@@ -1,0 +1,141 @@
+@import "../../variables";
+
+$size: 20px;
+$numberOfPages: 3;
+
+.print {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 21cm;
+  min-height: $numberOfPages * 29.7cm;
+  overflow-x: hidden;
+  overflow-y: unset;
+
+  .aside {
+    width: 7cm;
+    min-width: 7cm;
+    background: $color-dark;
+    padding: ($size * 3) 0;
+
+    &__photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .hex {
+        filter: drop-shadow(0 0 10px rgba($color-text, 0.5))
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: ($size * 2) $size $size;
+
+      &__link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        font-size: 1em;
+        font-weight: 300;
+        color: $color-accent;
+        padding: ($size / 2) 0;
+
+        svg {
+          height: $size;
+          width: $size;
+          margin: 0 $size 0;
+
+          &.stroke {
+            stroke: $color-accent;
+
+            path {
+              stroke: $color-accent;
+            }
+          }
+
+          &.fill {
+            fill: $color-accent;
+
+            path {
+              fill: $color-accent;
+            }
+          }
+        }
+      }
+    }
+
+    .section {
+      font-size: .9em;
+
+      &__title {
+        padding: 0 0 0 $size;
+        font-size: 1em;
+        letter-spacing: $size / 3;
+        text-align: left;
+      }
+
+      &__items {
+        &__item {
+          &__title {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    padding: 0 0 ($size * 2) ($size * 2 - 1px);
+    font-size: 14px;
+    overflow-y: unset;
+    background: $color-dark;
+
+    &__title {
+      display: block;
+      width: 100%;
+      margin: ($size * 5.5) 0 0;
+      letter-spacing: $size / 2;
+      color: $color-accent;
+      font-weight: 300;
+      font-size: 3em;
+      text-align: left;
+    }
+
+    &__subtitle {
+      display: block;
+      width: 100%;
+      margin: 0;
+      letter-spacing: $size / 4;
+      color: $color-accent;
+      font-weight: 300;
+      font-size: 1.5em;
+      text-align: left;
+    }
+
+    .section {
+      &__title {
+        font-size: 1.5em;
+      }
+
+      // Print hacks
+      &:nth-of-type(1) .section__timeline__event:nth-of-type(2) {
+        padding-bottom: 100px;
+      }
+
+      &:nth-of-type(3) .section__list__project:nth-of-type(3) {
+        padding-bottom: 100px;
+      }
+    }
+  }
+}

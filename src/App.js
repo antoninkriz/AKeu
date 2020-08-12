@@ -12,6 +12,7 @@ import Triangles from "./components/triangles/Triangles";
 // Pages
 import Home from "./pages/Home/Home";
 import Resume from "./pages/Resume/Resume";
+import Print from "./pages/Print/Print";
 import ContactMe from "./pages/ContactMe/ContactMe";
 import Article from "./pages/Article/Article";
 import NotFound from "./pages/NotFound/NotFound";
@@ -30,6 +31,12 @@ const routes = [
     exact: true,
     triangles: false,
     component: Resume
+  },
+  {
+    path: '/print',
+    exact: true,
+    triangles: false,
+    component: Print
   },
   {
     path: '/contact-me',
