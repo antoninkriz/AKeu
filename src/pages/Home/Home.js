@@ -78,6 +78,7 @@ class Home extends React.Component {
         <Helmet>
           <title>Who am I | Antonín Kříž</title>
           <meta name="description" content="The personal website of Antonín Kříž - web and mobile developer and a student" />
+          <link rel="canonical" href={`https://www.antoninkriz.eu/${this.props.path}`} />
         </Helmet>
         <h1 className="home__title">{isMobile() ? 'AK' : 'Antonín Kříž'}</h1>
         <Parallax pages={2}>

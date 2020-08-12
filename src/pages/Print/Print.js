@@ -69,8 +69,9 @@ class Print extends React.Component {
     return (
       <div className="print">
         <Helmet>
-          <title>Resume | Antonín Kříž</title>
+          <title>Print resume | Antonín Kříž</title>
           <meta name="description" content="Printer friendly version of a CV of Antonín Kříž - web and mobile developer and a student." />
+          <link rel="canonical" href={`https://www.antoninkriz.eu/${this.props.path}`} />
         </Helmet>
         <aside className="aside">
           <div className="aside__photo">

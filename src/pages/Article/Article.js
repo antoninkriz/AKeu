@@ -45,6 +45,7 @@ class Article extends React.Component {
         <Helmet>
           <title>{post.title} | Antonín Kříž</title>
           <meta name="description" content={`${post.description} - Antonín Kříž - web and mobile developer and a student.`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu/${this.props.path}`.replace(':id', id)} />
         </Helmet>
         <div className="article__title">
           <h1 className="article__title__text">{post.title}</h1>

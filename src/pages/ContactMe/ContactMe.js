@@ -31,6 +31,7 @@ class ContactMe extends React.Component {
         <Helmet>
           <title>Contact Me | Antonín Kříž</title>
           <meta name="description" content="Contacts Antonín Kříž - web and mobile developer and a student. Email, link to LinkedIn, GitHub and Keybase." />
+          <link rel="canonical" href={`https://www.antoninkriz.eu/${this.props.path}`} />
         </Helmet>
         <h1 className="contacts__title">Contact Me</h1>
         <a className="contacts__email" href={`mailto:${profile.email}`} onClick={this.copyEmail.bind(this)}>
