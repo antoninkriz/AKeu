@@ -1,6 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Helmet} from "react-helmet";
+import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
 
 // Utils
 import {dateToHumanDuration, dateToYear, dateToYearMonths} from "../../utils/date";
@@ -14,10 +16,9 @@ import HexagonImage from "../../components/hexagonImage/HexagonImage";
 import SectionTimeline from "./_sectionTimeline";
 import SectionArticles from "./_sectionArticles";
 import SectionItems from "./_sectionItems";
+import SvgIcon from "../../components/svg/SvgIcon";
 
 import "./Print.scss";
-import PropTypes from "prop-types";
-import SvgIcon from "../../components/svg/SvgIcon";
 
 class Print extends React.Component {
   componentDidMount() {
@@ -71,7 +72,7 @@ class Print extends React.Component {
         <Helmet>
           <title>Print resume | Antonín Kříž</title>
           <meta name="description" content="Printer friendly version of a CV of Antonín Kříž - web and mobile developer and a student." />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu${this.props.location.pathname}`} />
         </Helmet>
         <aside className="aside">
           <div className="aside__photo">
@@ -128,4 +129,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {getResume, getProfile}
-)(Print);
+)(withRouter(Print));

@@ -17,3 +17,9 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// Remove old meta tags
+const description = document.querySelector("meta[name='description']");
+if (description)
+  description.remove();
+

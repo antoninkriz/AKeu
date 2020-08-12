@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import copy from "copy-to-clipboard";
+import {withRouter} from "react-router-dom";
 
 // Redux
 import {getProfile} from "../../redux/actions/userActions";
@@ -31,7 +32,7 @@ class ContactMe extends React.Component {
         <Helmet>
           <title>Contact Me | Antonín Kříž</title>
           <meta name="description" content="Contacts Antonín Kříž - web and mobile developer and a student. Email, link to LinkedIn, GitHub and Keybase." />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu${this.props.location.pathname}`} />
         </Helmet>
         <h1 className="contacts__title">Contact Me</h1>
         <a className="contacts__email" href={`mailto:${profile.email}`} onClick={this.copyEmail.bind(this)}>
@@ -72,4 +73,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {getProfile}
-)(ContactMe);
+)(withRouter(ContactMe));

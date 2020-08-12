@@ -5,6 +5,7 @@ import {Parallax, ParallaxLayer} from "react-spring/renderprops-addons";
 import Typist from "react-typist";
 import {Helmet} from "react-helmet";
 import ReactMarkdown from "react-markdown";
+import {withRouter} from "react-router-dom";
 
 // Utils
 import windowUnit from "../../utils/windowUnit";
@@ -78,7 +79,7 @@ class Home extends React.Component {
         <Helmet>
           <title>Who am I | Antonín Kříž</title>
           <meta name="description" content="The personal website of Antonín Kříž - web and mobile developer and a student" />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu${this.props.location.pathname}`} />
         </Helmet>
         <h1 className="home__title">{isMobile() ? 'AK' : 'Antonín Kříž'}</h1>
         <Parallax pages={2}>
@@ -144,4 +145,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {getProfile}
-)(Home);
+)(withRouter(Home));

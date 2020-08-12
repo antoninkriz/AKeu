@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Helmet} from "react-helmet";
 import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
 
 // Utils
 import {dateToHumanDuration, dateToYear, dateToYearMonths} from "../../utils/date";
@@ -13,9 +14,9 @@ import {getResume} from "../../redux/actions/dataActions";
 import SectionTimeline from "./_sectionTimeline";
 import SectionArticles from "./_sectionArticles";
 import SectionItems from "./_sectionItems";
+import SvgIcon from "../../components/svg/SvgIcon";
 
 import "./Resume.scss";
-import SvgIcon from "../../components/svg/SvgIcon";
 
 class Resume extends React.Component {
   componentDidMount() {
@@ -59,7 +60,7 @@ class Resume extends React.Component {
         <Helmet>
           <title>Resume | Antonín Kříž</title>
           <meta name="description" content="Resume of Antonín Kříž - web and mobile developer and a student. Work experience, education, projects, certifications, awards and more." />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu${this.props.location.pathname}`} />
         </Helmet>
         <h1 className="resume__title">CV</h1>
         <a className="resume__download" href="/Antonin-Kriz-resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -91,4 +92,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {getResume}
-)(Resume);
+)(withRouter(Resume));

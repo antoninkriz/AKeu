@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {Redirect} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import ReactMarkdown from "react-markdown";
 
@@ -45,7 +45,7 @@ class Article extends React.Component {
         <Helmet>
           <title>{post.title} | Antonín Kříž</title>
           <meta name="description" content={`${post.description} - Antonín Kříž - web and mobile developer and a student.`} />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu${this.props.location.pathname}`} />
         </Helmet>
         <div className="article__title">
           <h1 className="article__title__text">{post.title}</h1>
@@ -84,4 +84,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {getPost}
-)(Article);
+)(withRouter(Article));
