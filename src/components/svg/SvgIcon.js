@@ -7,7 +7,9 @@ import icons from "./_icons";
 class SvgIcon extends React.PureComponent {
   render() {
     const icon = icons[this.props.icon];
-    return icon.f({});
+    return icon.f({svg: {
+      className: icon.color.join(' ')
+      }});
   }
 }
 

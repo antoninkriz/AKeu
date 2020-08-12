@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {Helmet} from "react-helmet";
 
 // Utils
 import {dateToHumanDuration, dateToYear, dateToYearMonths} from "../../utils/date";
@@ -13,7 +14,6 @@ import SectionArticles from "./_sectionArticles";
 import SectionItems from "./_sectionItems";
 
 import "./Resume.scss";
-import {Helmet} from "react-helmet";
 
 class Resume extends React.Component {
   componentDidMount() {

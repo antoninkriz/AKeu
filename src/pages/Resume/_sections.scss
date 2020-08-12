@@ -209,6 +209,22 @@
         &__description {
           padding: 0 0 0 ($size / 5);
           font-weight: 300;
+
+          a {
+            text-decoration: none;
+            color: $color-accent !important;
+            transition: color .15s ease;
+
+            @include underline(small, accent);
+
+            &:visited {
+              color: $color-accent;
+            }
+
+            &:hover {
+              color: $color-accent;
+            }
+          }
         }
 
         &__link {

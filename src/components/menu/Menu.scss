@@ -13,6 +13,10 @@
   box-shadow: 0 0 5px rgba($color-text, .5);
   transition: width .2s ease, height .2s ease, top .2s ease, right .2s ease;
   will-change: width, height, top, right;
+
+  @media print {
+    display: none;
+  }
   
   @media #{$media} {
     top: $size * 2;
