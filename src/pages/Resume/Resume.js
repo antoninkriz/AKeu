@@ -59,7 +59,7 @@ class Resume extends React.Component {
         <Helmet>
           <title>Resume | Antonín Kříž</title>
           <meta name="description" content="Resume of Antonín Kříž - web and mobile developer and a student. Work experience, education, projects, certifications, awards and more." />
-          <link rel="canonical" href={`https://www.antoninkriz.eu/${this.props.path}`} />
+          <link rel="canonical" href={`https://www.antoninkriz.eu/${window.location.pathname}`} />
         </Helmet>
         <h1 className="resume__title">CV</h1>
         <a className="resume__download" href="/Antonin-Kriz-resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -79,7 +79,6 @@ class Resume extends React.Component {
 }
 
 Resume.propTypes = {
-  path: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   resume: PropTypes.object.isRequired,
 };

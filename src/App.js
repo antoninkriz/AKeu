@@ -80,7 +80,7 @@ const AppContent = () => {
           <Route path={r.path} exact={r.exact} key={i} render={p =>
             <>
               {r.triangles && <Triangles/>}
-              <r.component {...p} path={r.path}/>
+              <r.component {...p}/>
             </>
           }>
           </Route>
