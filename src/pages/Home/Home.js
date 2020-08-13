@@ -9,7 +9,7 @@ import {withRouter} from "react-router-dom";
 
 // Utils
 import windowUnit from "../../utils/windowUnit";
-import isMobile from "../../utils/isMobile";
+import {isMobile, isSafari} from "../../utils/isMobile";
 import renderers from "../../components/markdown/renderer";
 
 // Redux
@@ -74,6 +74,8 @@ class Home extends React.Component {
         </ParallaxLayer>
       );
 
+    const size = isMobile() ? `30${windowUnit()}` : `20${windowUnit()}`;
+
     return (
       <div className="home">
         <Helmet>
@@ -98,7 +100,10 @@ class Home extends React.Component {
                 }
               </div>
               <div className="home__hello__photo">
-                <HexagonImage imageUrl={photo} size={`20${windowUnit()}`} />
+                {isSafari()
+                  ? <img className="home__hello__photo__hexagon" src={photo} alt="Profile"
+                         style={{width: size, height: size}} />
+                  : <HexagonImage imageUrl={photo} size={size} alt="Profile" />}
               </div>
             </section>
           </ParallaxLayer>
@@ -117,7 +122,7 @@ class Home extends React.Component {
                   </div>
                 </div>
                 <div className="home__section__content__body">
-                  <ReactMarkdown renderers={renderers} skipHtml={true} className="home__section__content__body__content" source={whoAmI}/>
+                  <ReactMarkdown renderers={renderers} skipHtml={true} className="home__section__content__body__content" source={whoAmI} />
                 </div>
               </div>
             </section>

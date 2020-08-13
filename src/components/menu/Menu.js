@@ -5,8 +5,9 @@ import {useDispatch, useSelector} from "react-redux";
 
 // Utils
 import windowUnit from "../../utils/windowUnit";
-import isMobile from "../../utils/isMobile";
+import {isMobile} from "../../utils/isMobile";
 import windowSize from "../../utils/windowSize";
+import classNames from "../../utils/classNames";
 
 // Redux
 import {menuClose, menuOpen} from "../../redux/actions/uiActions";
@@ -65,8 +66,31 @@ const Menu = () => {
     return state.ui.isMenuOpen
   });
 
-  return (
-    <animated.div className="menu" style={{
+  const menuContent = (
+    <>
+      <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen} onClick={isMenuOpen ? closeMenu : openMenu} />
+      <div className="menu__content__links">
+        <Link className="menu__content__links__link" to="/" onClick={closeMenu}>Who am I</Link>
+        <Link className="menu__content__links__link" to="/cv" onClick={closeMenu}>CV</Link>
+        <Link className="menu__content__links__link" to="/contact-me" onClick={closeMenu}>Contact Me</Link>
+      </div>
+    </>
+  )
+
+  return isMobile() ? (
+    <div className={classNames({
+      'menu': true,
+      'menu--open': isMenuOpen
+    })}>
+      <div className="menu__content">
+        {menuContent}
+      </div>
+    </div>
+  ) : (
+    <animated.div  className={classNames({
+      'menu': true,
+      'menu--open': isMenuOpen
+    })} style={{
       width: menuProps.n.interpolate(transitions.menu.circle.width),
       height: menuProps.n.interpolate(transitions.menu.circle.height),
       top: menuProps.n.interpolate(transitions.menu.circle.top),
@@ -76,12 +100,7 @@ const Menu = () => {
         top: menuProps.n.interpolate(transitions.menu.content.top),
         right: menuProps.n.interpolate(transitions.menu.content.right),
       }}>
-        <NavIcon className="menu__content__icon" isMenuOpen={isMenuOpen} onClick={isMenuOpen ? closeMenu : openMenu}/>
-        <div className="menu__content__links">
-          <Link className="menu__content__links__link" to="/" onClick={closeMenu}>Who am I</Link>
-          <Link className="menu__content__links__link" to="/cv" onClick={closeMenu}>CV</Link>
-          <Link className="menu__content__links__link" to="/contact-me" onClick={closeMenu}>Contact Me</Link>
-        </div>
+        {menuContent}
       </animated.div>
     </animated.div>
   );

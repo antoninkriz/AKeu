@@ -11,7 +11,7 @@
   background: $color-accent;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba($color-text, .5);
-  transition: width .2s ease, height .2s ease, top .2s ease, right .2s ease;
+  transition: width 1s ease, height 1s ease, top 1s ease, right 1s ease;
   will-change: width, height, top, right;
 
   @media print {
@@ -24,6 +24,18 @@
     transition: width 0s ease, height 0s ease, top 0s ease, right 0s ease;
   }
 
+  &--open {
+    width: calc(max(400vh, 400vw) + #{$size});
+    height: calc(max(400vh, 400vw) + #{$size});
+    top: calc(-1 * max(200vh, 200vw) + #{$size});
+    right: calc(-1 * max(200vh, 200vw) + #{$size});
+  }
+
+  &--open &__content {
+    top: calc(max(200vh, 200vw) - #{$size});
+    right: calc(max(200vh, 200vw) - #{$size});
+  }
+
   &__content {
     position: absolute;
     display: flex;
@@ -32,10 +44,14 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    transition: top .2s ease, right .2s ease;
+    top: -$size;
+    right: -$size;
+    transition: top 1s ease, right 1s ease;
     will-change: top, right;
 
     @media #{$media} {
+      top: -2 * $size;
+      right: -2 * $size;
       transition: top 0s ease, right 0s ease;
     }
 
