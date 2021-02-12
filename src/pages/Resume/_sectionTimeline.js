@@ -28,7 +28,7 @@ class SectionTimeline extends React.Component {
                   <ReactMarkdown renderers={renderers} skipHtml={true} className="section__timeline__event__content__description__text" source={e.description}/>
                 </div>
                 }
-                {e.stack &&
+                {e.stack && e.stack.length !== 0 &&
                 <div className="section__timeline__event__content__stack">
                   <span className="section__timeline__event__content__stack__title">Stack</span>
                   {e.stack.map((s, j) => (

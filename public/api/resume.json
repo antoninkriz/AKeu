@@ -1,12 +1,23 @@
 {
   "experience": [
     {
+      "position": "Full Stack Developer",
+      "name": "Quantlane",
+      "logo": "/images/resume/quantlane.png",
+      "link": "https://quantlane.com",
+      "from": "2021-02",
+      "to": null,
+      "place": "Prague",
+      "text": "",
+      "stack": []
+    },
+    {
       "position": "Front End / Full Stack Web Developer",
       "name": "Alza.cz",
       "logo": "/images/resume/alza.png",
       "link": "https://www.alza.cz",
       "from": "2017-07",
-      "to": null,
+      "to": "2021-01",
       "place": "Prague",
       "text": "Development and maintenance of the biggest Czech e-commerce eshop. I work on mostly on front end (React, C# ASP, JS, …) but also with back end components of the web site (C#, SQL/T-SQL, …).",
       "stack": [
@@ -62,7 +73,7 @@
       "from": "2019",
       "to": "2022",
       "place": "Prague",
-      "text": "**» 3rd semester** // TODO :)\n\n**✓ 2nd semester**  \n• C++ - programming and OOP, 2nd place out of 654 students  \n• C# - .Net Framework, ASP.Net, WPF  \n• Python - from basics to numpy and Pandas  \n• Databases - Oracle SQL, database design  \n• Linear Algebra  \n• Assembler/ Computer structures and architectures\n\n**✓ 1st semester**  \n• C - programming and algorithms, 26th place out of 834 students  \n• Bash Shell scripting and programming  \n• Linux basics  \n• Electronics - Digital and Analog Circuits  \n• Elements of Calculus  \n• Mathematical logic  "
+      "text": "**» 4th semester** // TODO :)\n\n**✓ 3rd semester**  \n• Algorithms and Graphs - graphs, dynamic-programming, 1st to 5th place out of 529 students  \n• Competitive Programming - weekly ACM-like team competitions  \n• Knowledge Systems - fuzzy logic, Bayesian networks, introduction to neural networks  \n• Project Management - project lifecycle , resource and risks analysis, team roles, communication  \n• Automata and Grammars - languages, finite automata, translations, parsing  \n• Java - mandatory introduction to Java  \n• Discrete Mathematics\n\n**✓ 2nd semester**  \n• C++ - programming and OOP, 2nd place out of 654 students  \n• C# - .Net Framework, ASP.Net, WPF  \n• Python - from basics to numpy and Pandas  \n• Databases - Oracle SQL, database design  \n• Linear Algebra  \n• Assembler/ Computer structures and architectures\n\n**✓ 1st semester**  \n• C - programming and algorithms, 26th place out of 834 students  \n• Bash Shell scripting and programming  \n• Linux basics  \n• Electronics - Digital and Analog Circuits  \n• Elements of Calculus  \n• Mathematical logic  "
     },
     {
       "name": "SPŠE Františka Křižíka",
