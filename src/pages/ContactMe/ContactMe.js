@@ -20,7 +20,8 @@ class ContactMe extends React.Component {
 
   componentDidMount() {
     // Update only when required
-    if (Object.keys(this.props.profile).filter(k => this.props.profile[k].length > 0).length === 0)
+    const profileKeys = Object.keys(this.props.profile)
+    if (profileKeys.filter(k => this.props.profile[k].length > 0).length !== profileKeys.length)
       this.props.getProfile();
   }
 
@@ -58,7 +59,7 @@ ContactMe.propTypes = {
   getProfile: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   profile: PropTypes.shape({
-    email: PropTypes.string.isRequired,
+    email: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.array.isRequired]),
     linkedin: PropTypes.string.isRequired,
     github: PropTypes.string.isRequired,
     keybase: PropTypes.string.isRequired

@@ -2,7 +2,10 @@ import {USER_PROFILE} from "../types";
 import defaultProfile from '../../public/api/profile.json'
 
 const initialState = {
-  profile: defaultProfile
+  profile: {
+    ...defaultProfile,
+    reload: ''
+  }
 };
 
 const userReducer = (state = initialState, action) => {
