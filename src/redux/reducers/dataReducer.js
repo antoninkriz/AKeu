@@ -5,7 +5,7 @@ import defaultResume from '../../public/api/resume.json'
 import postAdamDekanem from '../../public/api/posts/adam-dekanem.json'
 import postCetip from '../../public/api/posts/cetip.json'
 import postCtuTimetableGenerator from '../../public/api/posts/ctu-timetable-generator.json'
-import postCtuTimetableGeneratorV2 from '../../public/api/posts/ctu-timetable-generator-v2.json'
+import postCtuTimetableGeneratorNew from '../../public/api/posts/ctu-timetable-generator-new.json'
 import postKriziciUnofficialAppForSkolakrizikCz from '../../public/api/posts/krizici-unofficial-app-for-skolakrizik-cz.json'
 import postLetsloud from '../../public/api/posts/letsloud.json'
 import postPedfCuniUserFriendlyRecognitionOfCompletionOfCourses from '../../public/api/posts/pedf-cuni-user-friendly-recognition-of-completion-of-courses.json'
@@ -14,7 +14,7 @@ const posts = {
   'adam-dekanem': postAdamDekanem,
   'cetip': postCetip,
   'ctu-timetable-generator': postCtuTimetableGenerator,
-  'ctu-timetable-generator-v2': postCtuTimetableGeneratorV2,
+  'ctu-timetable-generator-new': postCtuTimetableGeneratorNew,
   'krizici-unofficial-app-for-skolakrizik-cz': postKriziciUnofficialAppForSkolakrizikCz,
   'letsloud': postLetsloud,
   'pedf-cuni-user-friendly-recognition-of-completion-of-courses': postPedfCuniUserFriendlyRecognitionOfCompletionOfCourses,

@@ -110,7 +110,7 @@
     {
       "title": "CTU-TimeTableGenerator V2",
       "logo": "/images/posts/ctu-timetable-generator-new/logo.png",
-      "link": "ctu-timetable-generator",
+      "link": "ctu-timetable-generator-new",
       "description": "Tool written in React, Python and C++ to generate the best possible time table"
     },
     {
