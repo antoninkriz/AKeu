@@ -1,0 +1,6 @@
+{
+  "createdAt": "2021-04",
+  "title": "Adam Děkanem - Adam for the dean",
+  "description": "Tool written in React, Python and C++ to generate the best possible time table",
+  "content": "![logo](/images/posts/adam-dekanem/logo.png)\n\n# Background\n\nThis was an april fools' project I've worked on with my friends.  \nWe've decided to announce the candidacy for Dean of FIT CTU, write an election program and do an interview with a create a short election campaign ad.  \nSadly we had to find a platform last minute to publish our work, so I bought a domain and built the website overnight. [This was the result](https://adamdekanem.cz/).\n\n# Development - [source code](https://github.com/antoninkriz/adam-dekanem)\n\nThe website is built using [React](https://reactjs.org/) and [react-snapshot](https://github.com/geelen/react-snapshot) to improve SEO.\n\n# Screenshots\n\n![](/images/posts/adam-dekanem/1.png)\n"
+}

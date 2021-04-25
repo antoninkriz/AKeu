@@ -130,7 +130,6 @@ $size: 20px;
             padding: 0 0 0 ($size / 5);
             margin: 0;
             font-size: .85em;
-            text-align: justify;
 
             p {
               margin-top: 0;
@@ -188,7 +187,6 @@ $size: 20px;
       &__logo {
         width: $size * 2;
         height: $size * 2;
-        background: $color-background;
         border-radius: $size / 10;
       }
 

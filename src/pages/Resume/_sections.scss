@@ -116,7 +116,6 @@
       &__logo {
         width: $size * 3;
         height: $size * 3;
-        background: $color-background;
         border-radius: $size / 10;
       }
 
@@ -193,7 +192,6 @@
       &__logo {
         width: $size * 3;
         height: $size * 3;
-        background: $color-background;
         border-radius: $size / 10;
       }
 
@@ -209,6 +207,7 @@
         &__description {
           padding: 0 0 0 ($size / 5);
           font-weight: 300;
+          font-size: .85rem;
 
           a {
             text-decoration: none;
@@ -230,6 +229,7 @@
         &__link {
           display: flex;
           padding: ($size / 3) $size;
+          margin: ($size / 3) 0 0 0;
           float: right;
           color: $color-accent;
           border: solid 1px transparent;

@@ -18,6 +18,8 @@ import SvgIcon from "../../components/svg/SvgIcon";
 
 import "./Resume.scss";
 
+const formatDateWithNow = (from, to) => `${dateToHumanDuration(from, to)} • ${dateToYearMonths(from)} – ${to ? dateToYearMonths(to) : 'now'}`;
+
 class Resume extends React.Component {
   componentDidMount() {
     // Update only when required
@@ -33,7 +35,7 @@ class Resume extends React.Component {
       logo: x.logo,
       name: x.name,
       link: x.link,
-      duration: `${dateToHumanDuration(x.from, x.to)} • ${dateToYearMonths(x.from)} – ${x.to ? dateToYearMonths(x.to) : 'now'}`,
+      duration: formatDateWithNow(x.from, x.to),
       description: x.text,
       stack: x.stack
     }));
@@ -44,6 +46,15 @@ class Resume extends React.Component {
       name: x.name,
       link: x.link,
       duration: `${dateToYear(x.from)} – ${dateToYear(x.to)}`,
+      description: x.text
+    }));
+
+    const activities = resume.activities.map(x => ({
+      title: x.name,
+      logo: x.logo,
+      name: x.name,
+      link: x.link,
+      duration: formatDateWithNow(x.from, x.to),
       description: x.text
     }));
 
@@ -68,6 +79,7 @@ class Resume extends React.Component {
         </a>
         <SectionTimeline title="EXPERIENCE" events={experience}/>
         <SectionTimeline title="EDUCATION" events={education}/>
+        <SectionTimeline title="ACTIVITIES" events={activities}/>
         <SectionArticles title="PROJECTS" articles={resume.projects}/>
         <SectionArticles title="CERTIFICATIONS" articles={certifications} readMore="LINK"/>
         <SectionArticles title="HONORS/AWARDS" articles={resume.accomplishments}/>

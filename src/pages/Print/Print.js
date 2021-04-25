@@ -51,15 +51,16 @@ class Print extends React.Component {
       name: x.name,
       link: x.link,
       duration: `${dateToYear(x.from)} – ${dateToYear(x.to)}`,
-      description: ''
+      description: x.text
     }));
 
-    const certifications = resume.certifications.map(x => ({
-      title: `${x.title} – ${x.from}`,
+    const activities = resume.activities.map(x => ({
+      title: x.name,
       logo: x.logo,
-      name: x.title,
+      name: x.name,
       link: x.link,
-      date: dateToYearMonths(x.when)
+      duration: `${dateToYearMonths(x.from)} – ${x.to ? dateToYearMonths(x.to) : 'now'}`,
+      description: x.text
     }));
 
     const accomplishments = resume.accomplishments.map(x => ({
@@ -76,7 +77,7 @@ class Print extends React.Component {
         </Helmet>
         <aside className="aside">
           <div className="aside__photo">
-            <HexagonImage imageUrl={profile.photo} size={`4cm`} />
+            <HexagonImage imageUrl={profile.photo} size={`5cm`} />
           </div>
           <section className="aside__links">
             <a className="aside__links__link" href="https://www.antoninkriz.eu">
@@ -100,7 +101,7 @@ class Print extends React.Component {
           <h2 className="resume__subtitle">Web Developer & Student</h2>
           <SectionTimeline title="EXPERIENCE" events={experience}/>
           <SectionTimeline title="EDUCATION" events={education}/>
-          <SectionArticles title="CERTIFICATIONS" articles={certifications} readMore="LINK"/>
+          <SectionTimeline title="ACTIVITIES" events={activities}/>
           <SectionArticles title="HONORS/AWARDS" articles={accomplishments}/>
         </section>
       </div>
