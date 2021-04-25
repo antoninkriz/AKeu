@@ -1,15 +1,8 @@
 import {USER_PROFILE} from "../types";
+import defaultProfile from '../../public/api/profile.json'
 
 const initialState = {
-  profile: {
-    text: '',
-    whoAmI: '',
-    photo: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    keybase: ''
-  }
+  profile: defaultProfile
 };
 
 const userReducer = (state = initialState, action) => {

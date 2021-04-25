@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://www.antoninkriz.eu/",
+  "reactSnapshot": {
+    "snapshotDelay": 500
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && react-snapshot",
@@ -25,6 +28,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "exports": {
+    "public": "./public/api/resume.json"
   },
   "dependencies": {
     "axios": "^0.21.1",

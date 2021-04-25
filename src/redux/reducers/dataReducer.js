@@ -1,16 +1,8 @@
 import {DATA_RESUME, DATA_POST, DATA_404} from "../types";
+import defaultResume from '../../public/api/resume.json'
 
 const initialState = {
-  resume: {
-    experience: [],
-    education: [],
-    projects: [],
-    certifications: [],
-    accomplishments: [],
-    stack: [],
-    languages: [],
-    other: []
-  },
+  resume: defaultResume,
   posts: {}
 };
 
