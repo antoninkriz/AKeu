@@ -1,12 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-snapshot";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import "x-axios-progress-bar/dist/nprogress.css";
 import "./index.scss";
 
-ReactDOM.render(
+if (!global.requestAnimationFrame)
+  global.requestAnimationFrame = (callback) => setTimeout(callback, 0);
+
+render(
   <React.StrictMode>
     <App/>
   </React.StrictMode>,

@@ -76,7 +76,7 @@ class Print extends React.Component {
         </Helmet>
         <aside className="aside">
           <div className="aside__photo">
-            <HexagonImage imageUrl={profile.photo} size={`5cm`} />
+            <HexagonImage imageUrl={profile.photo} size={`4cm`} />
           </div>
           <section className="aside__links">
             <a className="aside__links__link" href="https://www.antoninkriz.eu">
@@ -97,7 +97,7 @@ class Print extends React.Component {
         </aside>
         <section className="resume">
           <h1 className="resume__title">Antonín Kříž</h1>
-          <h2 className="resume__subtitle">Web Developer</h2>
+          <h2 className="resume__subtitle">Web Developer & Student</h2>
           <SectionTimeline title="EXPERIENCE" events={experience}/>
           <SectionTimeline title="EDUCATION" events={education}/>
           <SectionArticles title="CERTIFICATIONS" articles={certifications} readMore="LINK"/>
